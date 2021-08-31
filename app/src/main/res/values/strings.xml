@@ -1,5 +1,20 @@
 <resources>
-    <string name="app_name">Yams</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <!--General/Commons-->
+    <string name="app_name">Yahtzee</string>
+    <string name="homepage_button">Homepage</string>
+
+    <!-- MainActivity-->
+    <string name="play_button">Play</string>
+    <string name="options_button">Options</string>
+    <string name="stats_button">Stats</string>
+
+    <!-- GameCreationActivity-->
+    <string name="game_creation_activity_title">Creation of the game</string>
+
+    <!-- OptionsActivity-->
+    <string name="options_activity_title">Options Page</string>
+
+    <!-- StatsActivity-->
+    <string name="stats_activity_title">Stats Page</string>
+
 </resources>

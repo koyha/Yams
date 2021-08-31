@@ -7,24 +7,24 @@
     tools:context=".OptionsActivity">
 
     <Button
-        android:id="@+id/button_Options2Homepage"
+        android:id="@+id/button_options_to_homepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="340dp"
-        android:text="Homepage"
+        android:text="@string/homepage_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_TitleOptions" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_title_options" />
 
     <TextView
-        android:id="@+id/textView_TitleOptions"
+        android:id="@+id/textview_title_options"
         android:layout_width="258dp"
         android:layout_height="61dp"
         android:layout_marginTop="96dp"
         android:scaleX="1"
         android:scaleY="1"
-        android:text="Options Page"
+        android:text="@string/options_activity_title"
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"

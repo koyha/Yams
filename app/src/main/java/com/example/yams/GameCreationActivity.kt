@@ -10,7 +10,7 @@ class GameCreationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_creation)
 
-        val buttonHomepage: Button = findViewById (R.id.button_GameCreation2Homepage)
+        val buttonHomepage: Button = findViewById (R.id.button_game_creation_to_homepage)
         buttonHomepage.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)

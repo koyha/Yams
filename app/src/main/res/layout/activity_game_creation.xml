@@ -7,24 +7,24 @@
     tools:context=".GameCreationActivity">
 
     <Button
-        android:id="@+id/button_GameCreation2Homepage"
+        android:id="@+id/button_game_creation_to_homepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="352dp"
-        android:text="Homepage"
+        android:text="@string/homepage_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_TitleStats" />
+        app:layout_constraintTop_toBottomOf="@+id/textview_title_game_creation" />
 
     <TextView
-        android:id="@+id/textView_TitleGameCreation"
+        android:id="@+id/textview_title_game_creation"
         android:layout_width="273dp"
         android:layout_height="88dp"
         android:layout_marginTop="96dp"
         android:scaleX="1"
         android:scaleY="1"
-        android:text="Creation of the Game"
+        android:text="@string/game_creation_activity_title"
         android:textAlignment="center"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"

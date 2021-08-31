@@ -17,19 +17,19 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val buttonPlay: Button = findViewById(R.id.button_Play)
+        val buttonPlay: Button = findViewById(R.id.button_play)
         buttonPlay.setOnClickListener(){
             val intent = Intent(this, GameCreationActivity::class.java)
             startActivity(intent)
         }
 
-        val buttonStats: Button = findViewById (R.id.button_Homepage2Stats)
+        val buttonStats: Button = findViewById (R.id.button_homepage_to_stats)
         buttonStats.setOnClickListener() {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
         }
 
-        val buttonOptions: Button = findViewById(R.id.button_Homepage2Options)
+        val buttonOptions: Button = findViewById(R.id.button_homepage_to_options)
         buttonOptions.setOnClickListener(){
             val intent = Intent(this, OptionsActivity::class.java)
             startActivity(intent)

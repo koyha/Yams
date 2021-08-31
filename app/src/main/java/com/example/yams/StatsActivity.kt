@@ -10,7 +10,7 @@ class StatsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
 
-        val buttonHomepage: Button = findViewById (R.id.button_Stats2Homepage)
+        val buttonHomepage: Button = findViewById (R.id.button_stats_to_homepage)
 
         buttonHomepage.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
