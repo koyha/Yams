@@ -1,14 +1,10 @@
 package com.example.yams
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.tabs.TabLayout
-import androidx.viewpager.widget.ViewPager
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
-import com.example.yams.ui.main.SectionsPagerAdapter
+import android.widget.Button
 import com.example.yams.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -21,16 +17,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sectionsPagerAdapter = SectionsPagerAdapter(this, supportFragmentManager)
-        val viewPager: ViewPager = binding.viewPager
-        viewPager.adapter = sectionsPagerAdapter
-        val tabs: TabLayout = binding.tabs
-        tabs.setupWithViewPager(viewPager)
-        val fab: FloatingActionButton = binding.fab
+        val buttonPlay: Button = findViewById(R.id.button_play)
+        buttonPlay.setOnClickListener(){
+            val intent = Intent(this, GameCreationActivity::class.java)
+            startActivity(intent)
+        }
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
+        val buttonStats: Button = findViewById (R.id.button_homepage_to_stats)
+        buttonStats.setOnClickListener() {
+            val intent = Intent(this, StatsActivity::class.java)
+            startActivity(intent)
+        }
+
+        val buttonOptions: Button = findViewById(R.id.button_homepage_to_options)
+        buttonOptions.setOnClickListener(){
+            val intent = Intent(this, OptionsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
