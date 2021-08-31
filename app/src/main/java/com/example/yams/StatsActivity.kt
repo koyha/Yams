@@ -5,16 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class Homepage : AppCompatActivity() {
+class StatsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_homepage)
 
 
-        val buttonStats: Button = findViewById (R.id.buttonStats)
+        val buttonHomepage: Button = findViewById (R.id.button_Stats2Homepage)
 
-        buttonStats.setOnClickListener() {
+        buttonHomepage.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
