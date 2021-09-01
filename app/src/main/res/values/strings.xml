@@ -10,6 +10,7 @@
 
     <!-- GameCreationActivity-->
     <string name="game_creation_activity_title">Creation of the game</string>
+    <string name="player">Player</string>
 
     <!-- OptionsActivity-->
     <string name="options_activity_title">Options Page</string>
