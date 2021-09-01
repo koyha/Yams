@@ -1,7 +1,7 @@
 <resources>
     <!--General/Commons-->
     <string name="app_name">Yahtzee</string>
-    <string name="homepage_button">Homepage</string>
+    <string name="placeholder">Placeholder</string>
 
     <!-- MainActivity-->
     <string name="play_button">Play</string>
