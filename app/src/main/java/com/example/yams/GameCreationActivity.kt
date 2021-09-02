@@ -11,30 +11,36 @@ private val Button.add: Unit
     get() {}
 
 class GameCreationActivity : AppCompatActivity() {
+    companion object {
+        var count: Int = 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_creation)
 
+        fun playerCount(playerString: String): String{
+            count += 1
+            return playerString.plus(" $count")
+        }
+        count = 0
+
         val playerString: String = getString(R.string.player)
         val inputTextOne: TextInputEditText = findViewById(R.id.player_one)
-        inputTextOne.hint = playerString.plus(" 1")
+        inputTextOne.hint = playerCount(playerString)
         val inputTextTwo: TextInputEditText = findViewById(R.id.player_two)
-        inputTextTwo.hint = playerString.plus(" 2")
+        inputTextTwo.hint = playerCount(playerString)
         val inputTextThree: TextInputEditText = findViewById(R.id.player_three)
-        inputTextThree.hint = playerString.plus(" 3")
-        // TODO: Implémenter fonction count et la call 3 fois au set up
+        inputTextThree.hint = playerCount(playerString)
+
 
         val inputBox: LinearLayout = findViewById(R.id.linear_layout_inputs_text)
-        var counter: Int = 3
         val buttonAddInputText: Button = findViewById(R.id.button_add_input_text)
         buttonAddInputText.setOnClickListener(){
-            counter += 1
             val inputText = TextInputEditText(this)
-            inputText.hint = playerString.plus(" $counter")
-
+            inputText.hint = playerCount(playerString)
             inputBox.addView(inputText)
         }
-
 
         val buttonHomepage: Button = findViewById (R.id.button_game_creation_to_homepage)
         buttonHomepage.setOnClickListener() {
@@ -43,4 +49,5 @@ class GameCreationActivity : AppCompatActivity() {
         }
 
     }
+
 }
