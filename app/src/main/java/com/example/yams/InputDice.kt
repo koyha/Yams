@@ -15,6 +15,7 @@ import org.intellij.lang.annotations.JdkConstants
 import java.io.Console
 import java.util.*
 import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,9 +29,7 @@ private const val ARG_PARAM2 = "param2"
  */
 
 class InputDice : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var count: Int = 0
-    private var diceList = ArrayList<Int>()
+    private var diceList = HashMap<ImageButton, Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,7 +49,6 @@ class InputDice : Fragment() {
         val layout: ConstraintLayout = requireView().findViewById(R.id.input_dice_box)
 
         for (index: Int in 0 until layout.childCount) {
-            println(index)
             val button = layout.getChildAt(index)
             button.setOnClickListener {
                 addSelectedDice(index + 1)
@@ -62,6 +60,10 @@ class InputDice : Fragment() {
         when (i) {
             1 -> return R.drawable.dice_1
             2 -> return R.drawable.dice_2
+            3 -> return R.drawable.dice_3
+            4 -> return R.drawable.dice_4
+            5 -> return R.drawable.dice_5
+            6 -> return R.drawable.dice_6
             else -> return R.drawable.dice_1
         }
     }
@@ -70,11 +72,21 @@ class InputDice : Fragment() {
         if (diceList.size < 5 && number >= 1 && number <= 6) {
             var dice = ImageButton(this.context)
             dice.setImageResource(getDiceImage(number))
+            dice.layoutParams = ViewGroup.LayoutParams(200, 250)
+            dice.scaleY = 0.75f
+            dice.scaleX = 0.75f
+            dice.background = null
+
             val layout = requireView().findViewById<LinearLayout>(R.id.chosen_box)
             layout.addView(dice)
-            diceList.add(number)
+            diceList[dice] = number
+
+            dice.setOnClickListener {
+                diceList.remove(it)
+                layout.removeView(it)
+            }
         }
-        println(diceList)
+        println(diceList.values)
     }
 
 
