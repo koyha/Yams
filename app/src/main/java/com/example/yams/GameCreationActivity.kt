@@ -15,5 +15,11 @@ class GameCreationActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
+
+        val createGameButton: Button = findViewById(R.id.button_game_creation_to_homepage)
+        createGameButton.setOnClickListener() {
+            val intent = Intent(this, Game::class.java)
+            startActivity(intent)
+        }
     }
 }
