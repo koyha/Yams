@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonOptions: Button = findViewById(R.id.button_homepage_to_options)
         buttonOptions.setOnClickListener(){
+            //TODO : remettre OptionsActivity
             val intent = Intent(this, OptionsActivity::class.java)
             startActivity(intent)
         }
