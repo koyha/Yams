@@ -31,7 +31,8 @@ class MainActivity : AppCompatActivity() {
 
         val buttonOptions: Button = findViewById(R.id.button_homepage_to_options)
         buttonOptions.setOnClickListener(){
-            val intent = Intent(this, OptionsActivity::class.java)
+            //TODO : remettre OptionsActivity
+            val intent = Intent(this, GameActivity::class.java)
             startActivity(intent)
         }
     }
