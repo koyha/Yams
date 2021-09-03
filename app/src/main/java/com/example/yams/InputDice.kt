@@ -1,7 +1,5 @@
 package com.example.yams
 
-import android.graphics.drawable.Icon
-import android.media.Image
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,11 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.children
-import org.intellij.lang.annotations.JdkConstants
-import java.io.Console
-import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 // TODO: Rename parameter arguments, choose names that match
@@ -86,7 +79,6 @@ class InputDice : Fragment() {
                 layout.removeView(it)
             }
         }
-        println(diceList.values)
     }
 
 
