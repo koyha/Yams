@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import com.google.android.material.textfield.TextInputEditText
 import org.w3c.dom.Text
@@ -69,9 +70,15 @@ class GameCreationActivity : AppCompatActivity() {
         val buttonHomepage: Button = findViewById (R.id.button_game_creation_to_homepage)
         buttonHomepage.setOnClickListener() {
             val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        val backButton: ImageButton = findViewById (R.id.back_button)
+        backButton.setOnClickListener() {
+            finish()
         }
 
+        val createGameButton: Button = findViewById(R.id.button_game_creation_to_homepage)
+        createGameButton.setOnClickListener() {
+            val intent = Intent(this, GameActivity::class.java)
+            startActivity(intent)
+        }
     }
-
 }
