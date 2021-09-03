@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".FragmentGrille">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/one_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/one_box" />
+
+            <TextView
+                android:id="@+id/one_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/three_kind_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/three_kind_box" />
+
+            <TextView
+                android:id="@+id/three_kind_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/two_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/two_box" />
+
+            <TextView
+                android:id="@+id/two_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/four_kind_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/four_kind_box" />
+
+            <TextView
+                android:id="@+id/four_kind_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/three_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/three_box" />
+
+            <TextView
+                android:id="@+id/three_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/full_house_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/full_house_box" />
+
+            <TextView
+                android:id="@+id/full_house_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/four_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/four_box" />
+
+            <TextView
+                android:id="@+id/four_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/sm_street_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/sm_street_box" />
+
+            <TextView
+                android:id="@+id/sm_street_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/five_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/five_box" />
+
+            <TextView
+                android:id="@+id/five_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/lg_street_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/lg_street_box" />
+
+            <TextView
+                android:id="@+id/lg_street_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/six_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/six_box" />
+
+            <TextView
+                android:id="@+id/six_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/yahtzee_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/yahtzee_box" />
+
+            <TextView
+                android:id="@+id/yahtzee_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bonus_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/bonus_box" />
+
+            <TextView
+                android:id="@+id/bonus_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/chance_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/chance_box" />
+
+            <TextView
+                android:id="@+id/chance_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/total_number_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/total_number_box" />
+
+            <TextView
+                android:id="@+id/total_number_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+
+            <TextView
+                android:id="@+id/total_combination_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/total_combination_box" />
+
+            <TextView
+                android:id="@+id/total_combination_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/grand_total_box"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="@string/grand_total_box" />
+
+            <TextView
+                android:id="@+id/grand_total_score"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="score" />
+        </TableRow>
+    </TableLayout>
+
+</FrameLayout>
