@@ -15,14 +15,11 @@ class GameActivity : AppCompatActivity() {
         val bund: Bundle? = this.intent.extras
         val playersName = bund?.getStringArrayList("playersName")
 
-        val linearLayout: LinearLayout = findViewById(R.id.player_list_layout)
-
         if (playersName != null) {
             for (item in playersName)
                 if (item != null) {
                     val playerName = TextView(this)
                     playerName.text = item
-                    linearLayout.addView(playerName)
                 }
         }
 

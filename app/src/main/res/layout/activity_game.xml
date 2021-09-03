@@ -7,24 +7,17 @@
 
     tools:context=".GameActivity">
 
-    <LinearLayout
-        android:id="@+id/player_list_layout"
-        android:layout_width="220dp"
-        android:layout_height="444dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.example.yams.FragmentGrille"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/text_view_player"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Players:"
-            android:textSize="34sp" />
-    </LinearLayout>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
