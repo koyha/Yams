@@ -20,9 +20,9 @@ class GameActivity : AppCompatActivity() {
         if (playersName != null) {
             for (item in playersName)
                 if (item != null) {
-                    val inputText = TextView(this)
-                    inputText.text = item
-                    linearLayout.addView(inputText)
+                    val playerName = TextView(this)
+                    playerName.text = item
+                    linearLayout.addView(playerName)
                 }
         }
 
