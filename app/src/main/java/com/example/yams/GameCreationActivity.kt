@@ -22,7 +22,7 @@ class GameCreationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_creation)
 
-        var playersName: ArrayList<String> = ArrayList()
+
 
 
 
@@ -51,7 +51,7 @@ class GameCreationActivity : AppCompatActivity() {
 
         val buttonStartGame: Button = findViewById(R.id.button_start_game)
         buttonStartGame.setOnClickListener(){
-
+            var playersName: ArrayList<String> = ArrayList()
             for (index: Int in 0 until layoutInputBox.childCount) {
                 val inputText = layoutInputBox.getChildAt(index) as TextInputEditText
                 playersName.add(inputText.text.toString())
@@ -63,13 +63,6 @@ class GameCreationActivity : AppCompatActivity() {
             val bund = Bundle()
             bund.putStringArrayList("playersName", playersName)
             intent.putExtras(bund)
-            /*
-            * a mettre dans la prochaine activity
-            *
-            Bundle b = this.getIntent().getExtras();
-            val playersName = b.getArrayList("playersName");
-            *
-            * */
             startActivity(intent)
         }
 
