@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_box">1.5dp</dimen>
+    <dimen name="margin_score">1.5dp</dimen>
+
+    <color name="background_box">@color/white</color>
+    <color name="background_score">@color/purple_200</color>
+
+    <color name="outline">@color/light_blue_400</color>
+</resources>

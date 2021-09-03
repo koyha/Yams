@@ -1,263 +1,533 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".FragmentGrille">
 
-    <!-- TODO: Update blank fragment layout -->
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/outline">
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
             <TextView
                 android:id="@+id/one_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/one_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/one_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/one_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/three_kind_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/three_kind_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/three_kind_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/three_kind_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="19dp">
 
             <TextView
                 android:id="@+id/two_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/two_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/two_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/two_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/four_kind_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/four_kind_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/four_kind_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/four_kind_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="39dp">
 
             <TextView
                 android:id="@+id/three_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/three_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/three_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/three_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/full_house_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/full_house_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/full_house_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/full_house_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="58dp">
 
             <TextView
                 android:id="@+id/four_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/four_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/four_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/four_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/sm_street_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/sm_street_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/sm_street_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/sm_street_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="78dp">
 
             <TextView
                 android:id="@+id/five_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/five_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/five_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/five_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/lg_street_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/lg_street_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/lg_street_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/lg_street_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="97dp">
 
             <TextView
                 android:id="@+id/six_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/six_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/six_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/six_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/yahtzee_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/yahtzee_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/yahtzee_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/yahtzee_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="117dp">
 
             <TextView
                 android:id="@+id/bonus_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/bonus_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/bonus_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/bonus_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/chance_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/chance_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/chance_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/chance_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="136dp">
 
             <TextView
                 android:id="@+id/total_number_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/total_number_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/total_number_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/total_number_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/total_combination_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/total_combination_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/total_combination_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/total_combination_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:layout_conversion_absoluteHeight="19dp"
+            tools:layout_conversion_absoluteWidth="330dp"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="155dp">
 
             <TextView
                 android:id="@+id/grand_total_box"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="@string/grand_total_box" />
+                android:layout_height="34dp"
+                android:layout_margin="@dimen/margin_box"
+                android:background="@color/background_box"
+                android:gravity="center"
+                android:text="@string/grand_total_box"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/grand_total_score3"
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:layout_marginTop="@dimen/margin_score"
+                android:layout_marginBottom="@dimen/margin_score"
+                android:layout_marginLeft="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/grand_total_score2"
+                android:layout_width="100dp"
+                android:layout_height="34dp"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/margin_score"
+                android:layout_marginBottom="@dimen/margin_score"/>
 
             <TextView
                 android:id="@+id/grand_total_score"
                 android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:text="score" />
+                android:layout_height="34dp"
+                android:layout_marginTop="@dimen/margin_score"
+                android:layout_marginBottom="@dimen/margin_score"
+                android:layout_marginRight="@dimen/margin_score"
+                android:background="@color/background_score"
+                android:gravity="center"
+                android:text="score"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </TableRow>
     </TableLayout>
 </FrameLayout>
