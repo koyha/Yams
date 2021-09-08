@@ -14,6 +14,16 @@
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_main.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_score_sheet.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/homepage_main.xml" value="0.30052083333333335" />
+        <entry key="app/src/main/res/drawable/dice_1.xml" value="0.28125" />
+        <entry key="app/src/main/res/drawable/dice_1_wtf.xml" value="0.2361111111111111" />
+        <entry key="app/src/main/res/drawable/dice_2.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/dice_3.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/dice_4.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/dice_5.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/dice_6.xml" value="0.265625" />
+        <entry key="app/src/main/res/layout/activity_game.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
+        <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />
       </map>
     </option>
   </component>

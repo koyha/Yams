@@ -1,13 +1,16 @@
 package com.example.yams
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.graphics.drawable.toDrawable
 import kotlin.collections.HashMap
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,6 +26,7 @@ private const val ARG_PARAM2 = "param2"
 
 class InputDice : Fragment() {
     private var diceList = HashMap<ImageButton, Int>()
+    var score = InputScore()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +36,6 @@ class InputDice : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_input_dice, container, false)
     }
 
@@ -63,21 +66,24 @@ class InputDice : Fragment() {
 
     private fun addSelectedDice(number: Int) {
         if (diceList.size < 5 && number >= 1 && number <= 6) {
-            var dice = ImageButton(this.context)
-            dice.setImageResource(getDiceImage(number))
-            dice.layoutParams = ViewGroup.LayoutParams(200, 250)
-            dice.scaleY = 0.75f
-            dice.scaleX = 0.75f
-            dice.background = null
-
+            val dice = ImageButton(this.context)
             val layout = requireView().findViewById<LinearLayout>(R.id.chosen_box)
+            
+            dice.setImageResource(getDiceImage(number))
+            dice.scaleType = ImageView.ScaleType.FIT_CENTER
+            dice.background = null
+            dice.layoutParams = ViewGroup.LayoutParams(layout.width/5, layout.height)
             layout.addView(dice)
-            diceList[dice] = number
 
+            diceList[dice] = number
             dice.setOnClickListener {
                 diceList.remove(it)
                 layout.removeView(it)
+                score.setDiceList(diceList.values)
+                (context as GameActivity).onUpdateListener()
             }
+            score.setDiceList(diceList.values)
+            (context as GameActivity).onUpdateListener()
         }
     }
 

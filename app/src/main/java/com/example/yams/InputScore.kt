@@ -1,6 +1,6 @@
 package com.example.yams
 
-class Score {
+class InputScore {
     private var diceList = ArrayList<Int>()
 
     fun setDiceList(diceList: MutableCollection<Int>) {
@@ -11,18 +11,6 @@ class Score {
 
     fun getNormalScores(dice: Int): Int {
         return diceList.count { it == dice } * dice
-    }
-
-    fun getBonus(): Int {
-        var sum = 0
-        for (i in 1..6)
-            // Should be recorded scores
-            sum += getNormalScores(i)
-
-        return if (sum >= 63)
-            35
-        else
-            0
     }
 
     fun getSameKind(sameCount: Int): Int {

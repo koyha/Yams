@@ -20,22 +20,22 @@
     <string name="stats_activity_title">Stats Page</string>
 
     <!-- GameActivity-->
-    <string name="one_box">1</string>
-    <string name="two_box">2</string>
-    <string name="three_box">3</string>
-    <string name="four_box">4</string>
-    <string name="five_box">5</string>
-    <string name="six_box">6</string>
+    <string name="one_box">Aces</string>
+    <string name="two_box">Twos</string>
+    <string name="three_box">Threes</string>
+    <string name="four_box">Fours</string>
+    <string name="five_box">Fives</string>
+    <string name="six_box">Sixes</string>
     <string name="bonus_box">Bonus</string>
     <string name="total_number_box">Total</string>
 
     <string name="grand_total_box">Grand Total</string>
 
-    <string name="three_kind_box">3 of a kind</string>
-    <string name="four_kind_box">4 of a kind</string>
+    <string name="three_kind_box">Three of a kind</string>
+    <string name="four_kind_box">Four of a kind</string>
     <string name="full_house_box">Full House</string>
-    <string name="sm_street_box">small street</string>
-    <string name="lg_street_box">large street</string>
+    <string name="sm_straight_box">Small straight</string>
+    <string name="lg_straight_box">Large straight</string>
     <string name="yahtzee_box">Yahtzee</string>
     <string name="chance_box">Chance</string>
     <string name="total_combination_box">Total</string>
@@ -43,5 +43,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="score_default"></string>
+    <string name="total_default">0</string>
 
 </resources>
