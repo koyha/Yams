@@ -73,4 +73,10 @@ class InputScore {
     fun hasDice(): Boolean {
         return diceList.isNotEmpty()
     }
+
+    fun clear(): ArrayList<Int> {
+        diceList.clear()
+        return diceList
+    }
+
 }

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import kotlinx.coroutines.test.withTestContext
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -55,6 +56,11 @@ class ScoreGridFragment : Fragment() {
 
     private fun onCellClicked(it: TextView) {
         // TODO: empty inputDIce and go to next player
+
+        if (inputInputScore.hasDice()){
+            val previousDiceList: ArrayList<Int> = inputInputScore.clear()
+        }
+
         val value = (it.text as String).toInt()
         scores[it.id] =  value
 
@@ -72,7 +78,13 @@ class ScoreGridFragment : Fragment() {
 
         it.tag = "score_set"
         it.isClickable = false
+
+
+
         updateTable()
+
+        //TODO: REMPLACER LE "ICI" PAR LE NOM DU JOUEUR ACTUEL
+        (context as GameActivity).nextFragment(ICI)
     }
 
     fun onInputChange() {
@@ -143,6 +155,7 @@ class ScoreGridFragment : Fragment() {
         val totalCell = requireView().findViewById<TextView>(R.id.total_combination_score)
         totalCell.text = specialTotal.toString()
     }
+
 
     companion object {
         /**

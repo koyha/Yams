@@ -87,7 +87,9 @@ class InputDice : Fragment() {
         }
     }
 
+    private fun delDice(){
 
+    }
 
     companion object {
         /**

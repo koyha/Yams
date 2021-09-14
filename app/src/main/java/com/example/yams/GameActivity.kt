@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import android.widget.TextView
 import kotlin.collections.HashMap
+import kotlin.collections.indexOf as collectionsIndexOf
 
 class GameActivity : AppCompatActivity() {
 
     lateinit var  option: Spinner
+    private val fragmentsMap : HashMap<String, ScoreGridFragment> = HashMap()
+    val fragments : ArrayList<ScoreGridFragment> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +23,7 @@ class GameActivity : AppCompatActivity() {
         val bund: Bundle? = this.intent.extras
         val playersName = bund?.getStringArrayList("playersName")
 
-        val fragments : ArrayList<FragmentGrille> = ArrayList()
+        //val fragments : ArrayList<ScoreGridFragment> = ArrayList()
         val score = InputScore()
 
         val globalScore = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
@@ -34,6 +37,7 @@ class GameActivity : AppCompatActivity() {
                     val fragment: ScoreGridFragment = ScoreGridFragment.newInstance(playerName,playerName)
                     fragment.inputInputScore = score
                     fragments.add(fragment)
+                    fragmentsMap[playerName] = fragment
 
                 }
         }
@@ -58,15 +62,6 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        val score = InputScore()
-        //val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
-        //fragment.inputInputScore = score
-        //val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
-        //dice.score = score
-    }
 
     fun onUpdateListener() {
         val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
@@ -77,5 +72,26 @@ class GameActivity : AppCompatActivity() {
         //TODO: change to the wanted player
         val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
         return fragment.scores
+    }
+
+    fun nextFragment(playerName: String){
+        println(fragments[0])
+        println(fragmentsMap["q"])
+        print(playerName)
+        println("Je suis ton ERREUUUURRRRR")
+
+        val indexCurrentFragment: Int = fragments.indexOf(fragmentsMap[playerName] as ScoreGridFragment)
+
+        if (indexCurrentFragment == null){
+            println("WUUUUUUUUUUUUUUUUUUUUTTTTTTTTTTTTTTTTTTTTTTTTT")
+        }
+        val nextFragment : ScoreGridFragment
+        if (indexCurrentFragment == fragments.size){
+            nextFragment = fragments[0]
+        }
+        else {
+            nextFragment = fragments[indexCurrentFragment+1]
+        }
+        supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
     }
 }
