@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/score_table"
-        android:name="com.example.yams.FragmentGrille"
+        android:name="com.example.yams.ScoreGridFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="visible"
@@ -30,6 +30,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/score_table"
         app:layout_constraintVertical_weight="2" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/global_scoresheet"
+        android:name="com.example.yams.GlobalScoresheetFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

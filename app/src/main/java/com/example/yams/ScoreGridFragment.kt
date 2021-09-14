@@ -18,13 +18,15 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FragmentGrille.newInstance] factory method to
+ * Use the [ScoreGridFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FragmentGrille : Fragment() {
+class ScoreGridFragment : Fragment() {
     var inputInputScore: InputScore = InputScore()
     private var normalTotal: Int = 0
     private var specialTotal: Int = 0
+    var playerName: String = ""
+    val scores = HashMap<Int, Int>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,24 +35,35 @@ class FragmentGrille : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_score_grid, container, false)
 
+        // Should work but might cause problems on reload ¯\_(ツ)_/¯
+        onEachScoreCell({
+            if (scores[it.id] == null) {
+                scores[it.id] = 0
+            }
+        }, view = v)
+
         onEachScoreCell({ cell ->
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
             }
-        }, v)
+        }, "clickable", view = v)
+
+        updateTable(v)
 
         return v
     }
 
     private fun onCellClicked(it: TextView) {
-        // WIP
-        it.setTextColor(Color.BLACK)
+        // TODO: empty inputDIce and go to next player
+        val value = (it.text as String).toInt()
+        scores[it.id] =  value
+
         if ("normal" in (it.tag as String)) {
-            normalTotal += (it.text as String).toInt()
+            normalTotal += value
             updateNormalTotal()
         }
         if ("special" in (it.tag as String)) {
-            specialTotal += (it.text as String).toInt()
+            specialTotal += value
             updateSpecialTotal()
         }
 
@@ -58,22 +71,37 @@ class FragmentGrille : Fragment() {
         grandTotalCell.text = (normalTotal + specialTotal).toString()
 
         it.tag = "score_set"
+        it.isClickable = false
+        updateTable()
     }
 
     fun onInputChange() {
         onEachScoreCell({ cell ->
-            cell.text = updateScore(cell)
-            cell.setTextColor(Color.BLUE)
-        })
+            if (inputInputScore.hasDice()) {
+                cell.isClickable = true
+                cell.text = updateScore(cell)
+                cell.setTextColor(Color.BLUE)
+            } else {
+                updateTable()
+            }
+        }, "clickable")
     }
 
-    private fun onEachScoreCell(f: (TextView) -> Unit, view: View = requireView()) {
+    private fun updateTable(view: View = requireView()) {
+        onEachScoreCell({
+            it.setTextColor(Color.BLACK)
+            it.text = scores[it.id].toString()
+            it.isClickable = false
+        }, view = view)
+    }
+
+    private fun onEachScoreCell(f: (TextView) -> Unit, tag: String = "score", view: View = requireView()) {
         val layout: TableLayout = view.findViewById(R.id.tableLayout)
         for (i: Int in 0 until layout.childCount) {
             val row: TableRow = layout.getChildAt(i) as TableRow
             for (j: Int in 0 until row.childCount) {
                 val cell: TextView = row.getChildAt(j) as TextView
-                if (cell.tag != null && "clickable" in (cell.tag as String)) {
+                if (cell.tag != null && tag in (cell.tag as String)) {
                     f(cell)
                 }
             }
@@ -90,9 +118,8 @@ class FragmentGrille : Fragment() {
             R.id.six_score -> inputInputScore.getNormalScores(6)
             R.id.three_kind_score -> inputInputScore.getSameKind(3)
             R.id.four_kind_score -> inputInputScore.getSameKind(4)
-            // TODO: change those
-            R.id.sm_street_score -> inputInputScore.getSmallStraight()
-            R.id.lg_street_score -> inputInputScore.getLargeStraight()
+            R.id.sm_straight_score -> inputInputScore.getSmallStraight()
+            R.id.lg_straight_score -> inputInputScore.getLargeStraight()
             R.id.full_house_score -> inputInputScore.getFull()
             R.id.yahtzee_score -> inputInputScore.getYahtzee()
             R.id.chance_score -> inputInputScore.getChance()
@@ -129,7 +156,7 @@ class FragmentGrille : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            FragmentGrille().apply {
+            ScoreGridFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
