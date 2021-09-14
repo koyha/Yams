@@ -69,4 +69,8 @@ class InputScore {
     fun getChance(): Int {
         return diceList.sum()
     }
+
+    fun hasDice(): Boolean {
+        return diceList.isNotEmpty()
+    }
 }

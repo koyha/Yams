@@ -9,7 +9,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/score_table"
-        android:name="com.example.yams.FragmentGrille"
+        android:name="com.example.yams.ScoreGridFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="visible"
@@ -59,7 +59,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.368" />
+            app:layout_constraintVertical_bias="0.368">
 
         <Spinner
             android:id="@+id/spinner"
@@ -72,5 +72,17 @@
             tools:layout_editor_absoluteY="16dp" />
 
     </androidx.appcompat.widget.Toolbar>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/global_scoresheet"
+        android:name="com.example.yams.GlobalScoresheetFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

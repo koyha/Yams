@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
+import android.widget.TextView
+import kotlin.collections.HashMap
 
 class GameActivity : AppCompatActivity() {
 
@@ -20,10 +22,16 @@ class GameActivity : AppCompatActivity() {
 
         val fragments : ArrayList<FragmentGrille> = ArrayList()
         val score = InputScore()
+
+        val globalScore = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
+        if (playersName != null) {
+            globalScore.setPlayers(playersName)
+        }
+
         if (playersName != null) {
             for (playerName in playersName)
                 if (playerName != null) {
-                    val fragment: FragmentGrille = FragmentGrille.newInstance(playerName,playerName)
+                    val fragment: ScoreGridFragment = ScoreGridFragment.newInstance(playerName,playerName)
                     fragment.inputInputScore = score
                     fragments.add(fragment)
 
@@ -52,10 +60,22 @@ class GameActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
+        val score = InputScore()
+        //val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
+        //fragment.inputInputScore = score
+        //val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
+        //dice.score = score
     }
 
     fun onUpdateListener() {
-        val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as FragmentGrille
+        val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
         fragment.onInputChange()
+    }
+
+    fun getScores(player: String): HashMap<Int, Int> {
+        //TODO: change to the wanted player
+        val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
+        return fragment.scores
     }
 }
