@@ -19,18 +19,16 @@ class GameActivity : AppCompatActivity() {
         val playersName = bund?.getStringArrayList("playersName")
 
         val fragments : ArrayList<FragmentGrille> = ArrayList()
-        val fragmentsHashMap : HashMap<String, FragmentGrille> = HashMap()
-
+        val score = InputScore()
         if (playersName != null) {
-            for (item in playersName)
-                if (item != null) {
-                    val fragment: FragmentGrille = FragmentGrille.newInstance(item,item)
+            for (playerName in playersName)
+                if (playerName != null) {
+                    val fragment: FragmentGrille = FragmentGrille.newInstance(playerName,playerName)
+                    fragment.inputInputScore = score
                     fragments.add(fragment)
-                    fragmentsHashMap.put(item, fragment)
+
                 }
         }
-
-        val score = InputScore()
         val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
         dice.score = score
 
@@ -48,8 +46,6 @@ class GameActivity : AppCompatActivity() {
             }
 
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-                //fragments[position].onInputChange()
             }
         }
     }
@@ -59,7 +55,7 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun onUpdateListener() {
-        //val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as FragmentGrille
-        //fragment.onInputChange()
+        val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as FragmentGrille
+        fragment.onInputChange()
     }
 }
