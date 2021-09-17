@@ -35,7 +35,6 @@ class ScoreGridFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_score_grid, container, false)
 
-        // Should work but might cause problems on reload ¯\_(ツ)_/¯
         onEachScoreCell({
             if (scores[it.id] == null) {
                 scores[it.id] = 0
@@ -46,13 +45,14 @@ class ScoreGridFragment : Fragment() {
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
             }
+            if (scores[cell.id] != 0){
+                cell.tag = "score_set"
+            }
         }, "clickable", view = v)
 
         updateTable(v)
 
         return v
-
-
     }
 
     private fun onCellClicked(it: TextView) {
