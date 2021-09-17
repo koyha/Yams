@@ -40,6 +40,8 @@
     <string name="chance_box">Chance</string>
     <string name="total_combination_box">Total</string>
 
+    <string name="player_turn">It is the turn of -></string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

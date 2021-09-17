@@ -60,6 +60,9 @@ class GameActivity : AppCompatActivity() {
             override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             }
         }
+        val playerTurn : TextView = findViewById<TextView>(R.id.player_turn)
+        var textPlayerTurn : String = getString(R.string.player_turn)
+        playerTurn.text = textPlayerTurn.plus(playersName[0])
     }
 
 
@@ -75,15 +78,19 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun nextFragment(playerName: String){
+
         val indexCurrentFragment: Int = fragments.indexOf(fragmentsMap[playerName] as ScoreGridFragment)
         val indexNextFragment : Int = if (indexCurrentFragment == (fragments.size - 1)){
             0
         } else {
             indexCurrentFragment + 1
         }
-
         val nextFragment : ScoreGridFragment = fragments[indexNextFragment]
         val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
+        val playerTurn : TextView = findViewById<TextView>(R.id.player_turn)
+        var textPlayerTurn : String = getString(R.string.player_turn)
+        playerTurn.text = textPlayerTurn.plus(fragmentsMap.keys.elementAt(indexNextFragment))
+
         dice.clearDiceList()
         supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
         option.setSelection(indexNextFragment)
