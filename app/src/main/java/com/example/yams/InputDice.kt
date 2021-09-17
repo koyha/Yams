@@ -25,7 +25,7 @@ private const val ARG_PARAM2 = "param2"
  */
 
 class InputDice : Fragment() {
-    private var diceList = HashMap<ImageButton, Int>()
+    var diceList = HashMap<ImageButton, Int>()
     var score = InputScore()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,6 +64,7 @@ class InputDice : Fragment() {
         }
     }
 
+
     private fun addSelectedDice(number: Int) {
         if (diceList.size < 5 && number >= 1 && number <= 6) {
             val dice = ImageButton(this.context)
@@ -85,6 +86,12 @@ class InputDice : Fragment() {
             score.setDiceList(diceList.values)
             (context as GameActivity).onUpdateListener()
         }
+    }
+
+    fun clearDiceList() {
+        val layout = requireView().findViewById<LinearLayout>(R.id.chosen_box)
+        layout.removeAllViews()
+        this.diceList.clear()
     }
 
     private fun delDice(){

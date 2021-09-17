@@ -74,9 +74,4 @@ class InputScore {
         return diceList.isNotEmpty()
     }
 
-    fun clear(): ArrayList<Int> {
-        diceList.clear()
-        return diceList
-    }
-
 }

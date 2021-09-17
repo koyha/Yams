@@ -4,11 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
-import android.widget.TextView
 import kotlin.collections.HashMap
-import kotlin.collections.indexOf as collectionsIndexOf
 
 class GameActivity : AppCompatActivity() {
 
@@ -23,7 +19,6 @@ class GameActivity : AppCompatActivity() {
         val bund: Bundle? = this.intent.extras
         val playersName = bund?.getStringArrayList("playersName")
 
-        //val fragments : ArrayList<ScoreGridFragment> = ArrayList()
         val score = InputScore()
 
         val globalScore = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
@@ -34,8 +29,13 @@ class GameActivity : AppCompatActivity() {
         if (playersName != null) {
             for (playerName in playersName)
                 if (playerName != null) {
+                    val bundlePlayerName : Bundle = Bundle()
+                    bundlePlayerName.putString("playerName",playerName)
                     val fragment: ScoreGridFragment = ScoreGridFragment.newInstance(playerName,playerName)
-                    fragment.inputInputScore = score
+                    fragment.inputScore = score
+                    fragment.apply { arguments = Bundle().apply{
+                        putString("playerName", playerName)}
+                    }
                     fragments.add(fragment)
                     fragmentsMap[playerName] = fragment
 
@@ -75,23 +75,17 @@ class GameActivity : AppCompatActivity() {
     }
 
     fun nextFragment(playerName: String){
-        println(fragments[0])
-        println(fragmentsMap["q"])
-        print(playerName)
-        println("Je suis ton ERREUUUURRRRR")
-
         val indexCurrentFragment: Int = fragments.indexOf(fragmentsMap[playerName] as ScoreGridFragment)
+        val indexNextFragment : Int = if (indexCurrentFragment == (fragments.size - 1)){
+            0
+        } else {
+            indexCurrentFragment + 1
+        }
 
-        if (indexCurrentFragment == null){
-            println("WUUUUUUUUUUUUUUUUUUUUTTTTTTTTTTTTTTTTTTTTTTTTT")
-        }
-        val nextFragment : ScoreGridFragment
-        if (indexCurrentFragment == fragments.size){
-            nextFragment = fragments[0]
-        }
-        else {
-            nextFragment = fragments[indexCurrentFragment+1]
-        }
+        val nextFragment : ScoreGridFragment = fragments[indexNextFragment]
+        val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
+        dice.clearDiceList()
         supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
+        option.setSelection(indexNextFragment)
     }
 }
