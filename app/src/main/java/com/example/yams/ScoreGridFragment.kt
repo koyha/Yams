@@ -22,11 +22,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ScoreGridFragment : Fragment() {
-    var inputInputScore: InputScore = InputScore()
+    var inputScore: InputScore = InputScore()
     private var normalTotal: Int = 0
     private var specialTotal: Int = 0
-    var playerName: String = ""
     val scores = HashMap<Int, Int>()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +35,6 @@ class ScoreGridFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_score_grid, container, false)
 
-        // Should work but might cause problems on reload ¯\_(ツ)_/¯
         onEachScoreCell({
             if (scores[it.id] == null) {
                 scores[it.id] = 0
@@ -46,6 +45,9 @@ class ScoreGridFragment : Fragment() {
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
             }
+            if (scores[cell.id] != 0){
+                cell.tag = "score_set"
+            }
         }, "clickable", view = v)
 
         updateTable(v)
@@ -54,7 +56,6 @@ class ScoreGridFragment : Fragment() {
     }
 
     private fun onCellClicked(it: TextView) {
-        // TODO: empty inputDIce and go to next player
         val value = (it.text as String).toInt()
         scores[it.id] =  value
 
@@ -72,12 +73,20 @@ class ScoreGridFragment : Fragment() {
 
         it.tag = "score_set"
         it.isClickable = false
-        updateTable()
+
+
+        val bund: Bundle? = this.arguments
+        val playerName : String? = bund?.getString("playerName")
+
+        if (playerName != null) {
+            (context as GameActivity).nextFragment(playerName)
+        }
+
     }
 
     fun onInputChange() {
         onEachScoreCell({ cell ->
-            if (inputInputScore.hasDice()) {
+            if (inputScore.hasDice()) {
                 cell.isClickable = true
                 cell.text = updateScore(cell)
                 cell.setTextColor(Color.BLUE)
@@ -110,19 +119,19 @@ class ScoreGridFragment : Fragment() {
 
     private fun updateScore(view: TextView): String {
         val a = when (view.id) {
-            R.id.one_score -> inputInputScore.getNormalScores(1)
-            R.id.two_score -> inputInputScore.getNormalScores(2)
-            R.id.three_score -> inputInputScore.getNormalScores(3)
-            R.id.four_score -> inputInputScore.getNormalScores(4)
-            R.id.five_score -> inputInputScore.getNormalScores(5)
-            R.id.six_score -> inputInputScore.getNormalScores(6)
-            R.id.three_kind_score -> inputInputScore.getSameKind(3)
-            R.id.four_kind_score -> inputInputScore.getSameKind(4)
-            R.id.sm_straight_score -> inputInputScore.getSmallStraight()
-            R.id.lg_straight_score -> inputInputScore.getLargeStraight()
-            R.id.full_house_score -> inputInputScore.getFull()
-            R.id.yahtzee_score -> inputInputScore.getYahtzee()
-            R.id.chance_score -> inputInputScore.getChance()
+            R.id.one_score -> inputScore.getNormalScores(1)
+            R.id.two_score -> inputScore.getNormalScores(2)
+            R.id.three_score -> inputScore.getNormalScores(3)
+            R.id.four_score -> inputScore.getNormalScores(4)
+            R.id.five_score -> inputScore.getNormalScores(5)
+            R.id.six_score -> inputScore.getNormalScores(6)
+            R.id.three_kind_score -> inputScore.getSameKind(3)
+            R.id.four_kind_score -> inputScore.getSameKind(4)
+            R.id.sm_straight_score -> inputScore.getSmallStraight()
+            R.id.lg_straight_score -> inputScore.getLargeStraight()
+            R.id.full_house_score -> inputScore.getFull()
+            R.id.yahtzee_score -> inputScore.getYahtzee()
+            R.id.chance_score -> inputScore.getChance()
             else -> 0
         }
         return a.toString()
@@ -143,6 +152,7 @@ class ScoreGridFragment : Fragment() {
         val totalCell = requireView().findViewById<TextView>(R.id.total_combination_score)
         totalCell.text = specialTotal.toString()
     }
+
 
     companion object {
         /**

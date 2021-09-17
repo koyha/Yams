@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
-import android.widget.TextView
 import kotlin.collections.HashMap
 
 class GameActivity : AppCompatActivity() {
 
     lateinit var  option: Spinner
+    private val fragmentsMap : HashMap<String, ScoreGridFragment> = HashMap()
+    val fragments : ArrayList<ScoreGridFragment> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +19,6 @@ class GameActivity : AppCompatActivity() {
         val bund: Bundle? = this.intent.extras
         val playersName = bund?.getStringArrayList("playersName")
 
-        val fragments : ArrayList<FragmentGrille> = ArrayList()
         val score = InputScore()
 
         val globalScore = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
@@ -31,9 +29,15 @@ class GameActivity : AppCompatActivity() {
         if (playersName != null) {
             for (playerName in playersName)
                 if (playerName != null) {
+                    val bundlePlayerName : Bundle = Bundle()
+                    bundlePlayerName.putString("playerName",playerName)
                     val fragment: ScoreGridFragment = ScoreGridFragment.newInstance(playerName,playerName)
-                    fragment.inputInputScore = score
+                    fragment.inputScore = score
+                    fragment.apply { arguments = Bundle().apply{
+                        putString("playerName", playerName)}
+                    }
                     fragments.add(fragment)
+                    fragmentsMap[playerName] = fragment
 
                 }
         }
@@ -58,15 +62,6 @@ class GameActivity : AppCompatActivity() {
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        val score = InputScore()
-        //val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
-        //fragment.inputInputScore = score
-        //val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
-        //dice.score = score
-    }
 
     fun onUpdateListener() {
         val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
@@ -77,5 +72,20 @@ class GameActivity : AppCompatActivity() {
         //TODO: change to the wanted player
         val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
         return fragment.scores
+    }
+
+    fun nextFragment(playerName: String){
+        val indexCurrentFragment: Int = fragments.indexOf(fragmentsMap[playerName] as ScoreGridFragment)
+        val indexNextFragment : Int = if (indexCurrentFragment == (fragments.size - 1)){
+            0
+        } else {
+            indexCurrentFragment + 1
+        }
+
+        val nextFragment : ScoreGridFragment = fragments[indexNextFragment]
+        val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
+        dice.clearDiceList()
+        supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
+        option.setSelection(indexNextFragment)
     }
 }

@@ -73,4 +73,5 @@ class InputScore {
     fun hasDice(): Boolean {
         return diceList.isNotEmpty()
     }
+
 }
