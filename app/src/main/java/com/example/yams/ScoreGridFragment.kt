@@ -47,9 +47,6 @@ class ScoreGridFragment : Fragment() {
         
         updateTable(v)
         onInputChange(v)
-
-        println(scores[R.id.chance_score])
-
         return v
     }
 
