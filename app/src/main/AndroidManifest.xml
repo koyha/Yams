@@ -10,14 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Yams">
         <activity
+            android:name=".EndGameActivity"
+            android:exported="true" />
+        <activity
             android:name=".GameActivity"
             android:exported="true"
-            android:theme="@style/Theme.Yams.NoActionBar"/>
+            android:theme="@style/Theme.Yams.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Yams.NoActionBar">
+            android:theme="@style/Theme.Yams.NoActionBar"
+            android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +32,8 @@
             android:name=".GameCreationActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Yams.NoActionBar" />
+            android:theme="@style/Theme.Yams.NoActionBar"
+            android:launchMode="singleInstance"/>
         <activity
             android:name=".StatsActivity"
             android:exported="true"

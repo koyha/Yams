@@ -1,5 +1,6 @@
 package com.example.yams
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,7 @@ class GameActivity : AppCompatActivity() {
     lateinit var  option: Spinner
     private val fragmentsMap : HashMap<String, ScoreGridFragment> = HashMap()
     val fragments : ArrayList<ScoreGridFragment> = ArrayList()
+    private var  fragmentsFinishedSGF : HashMap<ScoreGridFragment, Boolean> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +40,7 @@ class GameActivity : AppCompatActivity() {
 
                     fragments.add(fragment)
                     fragmentsMap[playerName] = fragment
+                    fragmentsFinishedSGF[fragment] = false
                 }
         }
         val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
@@ -90,7 +93,21 @@ class GameActivity : AppCompatActivity() {
         fragments[indexCurrentFragment].setPlayerTurn(false)
         nextFragment.setPlayerTurn(true)
 
-        supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
-        option.setSelection(indexNextFragment)
+        if (fragments[indexCurrentFragment].didPlayerFinishScoreSheet()){
+            fragmentsFinishedSGF[fragments[indexCurrentFragment]] = true
+        }
+
+        if(! gameIsOver()){
+            supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
+            option.setSelection(indexNextFragment)
+        } else {
+            val intent = Intent(this, EndGameActivity::class.java)
+            finishAffinity()
+            startActivity(intent)
+        }
+    }
+
+    private fun gameIsOver(): Boolean{
+        return fragmentsFinishedSGF.values.stream().allMatch { didPlayerFinish -> didPlayerFinish == true}
     }
 }
