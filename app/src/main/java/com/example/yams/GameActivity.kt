@@ -1,5 +1,6 @@
 package com.example.yams
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ class GameActivity : AppCompatActivity() {
 
     lateinit var  option: Spinner
     val fragments : ArrayList<ScoreGridFragment> = ArrayList()
+    private var  fragmentsFinishedSGF : HashMap<ScoreGridFragment, Boolean> = HashMap()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +35,7 @@ class GameActivity : AppCompatActivity() {
                     fragment.inputScore = score
 
                     fragments.add(fragment)
+                    fragmentsFinishedSGF[fragment] = false
                 }
         }
         val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
@@ -71,7 +74,7 @@ class GameActivity : AppCompatActivity() {
         val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
         dice.clearDiceList()
 
-        // Change active player
+        // Change active player fragment
         val indexCurrentFragment: Int = fragments.indexOf(currentFragment)
         val indexNextFragment : Int = if (indexCurrentFragment == (fragments.size - 1)){
             0
@@ -83,9 +86,20 @@ class GameActivity : AppCompatActivity() {
         currentFragment.setPlayerTurn(false)
         nextFragment.setPlayerTurn(true)
 
-        supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
-        option.setSelection(indexNextFragment)
+        if (currentFragment.didPlayerFinishScoreSheet()){
+            fragmentsFinishedSGF[currentFragment] = true
+        }
 
+        if(! gameIsOver()){
+            supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
+            option.setSelection(indexNextFragment)
+        } else {
+            val intent = Intent(this, EndGameActivity::class.java)
+            finishAffinity()
+            startActivity(intent)
+        }
+
+        // Change active player text
         val playerTurnTextView = findViewById<TextView>(R.id.player_turn)
         val textPlayerTurn = getString(R.string.player_turn)
         playerTurnTextView.text = textPlayerTurn.plus(nextFragment.player)
@@ -102,5 +116,9 @@ class GameActivity : AppCompatActivity() {
         } else {
             scoresheet.visibility = View.VISIBLE
         }
+    }
+
+    private fun gameIsOver(): Boolean{
+        return fragmentsFinishedSGF.values.stream().allMatch { didPlayerFinish -> didPlayerFinish == true}
     }
 }

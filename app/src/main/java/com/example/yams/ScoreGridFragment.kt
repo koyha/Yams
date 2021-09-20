@@ -85,11 +85,12 @@ class ScoreGridFragment : Fragment() {
                 updateTable(view)
             }
         }, "clickable", view)}
-
     }
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
+//          scores[it.id] = 0 //pour tester
+
             it.isClickable = false
             if (scores[it.id] == null) {
                 it.text = "0"
@@ -141,7 +142,10 @@ class ScoreGridFragment : Fragment() {
 
         if (normalTotal >= 63 && bonusCell.text == "0") {
             bonusCell.text = 35.toString()
+            scores[bonusCell.id] = 35
             normalTotal += 35
+        } else {
+            scores[bonusCell.id] = 0
         }
         totalCell.text = normalTotal.toString()
         scores[totalCell.id] = normalTotal
@@ -155,6 +159,16 @@ class ScoreGridFragment : Fragment() {
 
     fun setPlayerTurn(isPlayerTurn : Boolean){
         this.isPlayerTurn = isPlayerTurn
+    }
+
+    fun didPlayerFinishScoreSheet(): Boolean {
+        var finishedScoreSheet: Boolean = true
+        onEachScoreCell({ cell ->
+            if (scores[cell.id] == null){
+                finishedScoreSheet = false
+            }
+        })
+        return finishedScoreSheet
     }
 
     companion object {
