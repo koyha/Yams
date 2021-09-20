@@ -92,6 +92,7 @@ class InputDice : Fragment() {
         val layout = requireView().findViewById<LinearLayout>(R.id.chosen_box)
         layout.removeAllViews()
         this.diceList.clear()
+        score.setDiceList(diceList.values)
     }
 
     private fun delDice(){

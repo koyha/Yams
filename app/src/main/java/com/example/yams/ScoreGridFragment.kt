@@ -36,26 +36,17 @@ class ScoreGridFragment : Fragment() {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_score_grid, container, false)
 
-        onEachScoreCell({
-            if (scores[it.id] == null) {
-                scores[it.id] = 0
-            }
-        }, view = v)
-
         onEachScoreCell({ cell ->
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
             }
-            if (scores[cell.id] != 0) {
+            if (scores[cell.id] != null) {
                 cell.tag = "score_set"
             }
         }, "clickable", view = v)
-
-
+        
         updateTable(v)
-
         onInputChange(v)
-
         return v
     }
 
@@ -89,7 +80,7 @@ class ScoreGridFragment : Fragment() {
     }
 
     fun onInputChange(view: View = requireView()) {
-        if (this.isPlayerTurn){
+        if (this.isPlayerTurn) {
         onEachScoreCell({ cell ->
             if (inputScore.hasDice()) {
                 cell.isClickable = true
@@ -105,8 +96,13 @@ class ScoreGridFragment : Fragment() {
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
             it.setTextColor(Color.BLACK)
-            it.text = scores[it.id].toString()
             it.isClickable = false
+            if (scores[it.id] == null) {
+                it.text = "0"
+            }
+            else {
+                it.text = scores[it.id].toString()
+            }
         }, view = view)
     }
 
