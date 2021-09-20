@@ -23,6 +23,7 @@
         <entry key="app/src/main/res/drawable/dice_5.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/dice_6.xml" value="0.265625" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.26510416666666664" />
+        <entry key="app/src/main/res/layout/activity_game_creation.xml" value="0.21023302938196556" />
         <entry key="app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
         <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />

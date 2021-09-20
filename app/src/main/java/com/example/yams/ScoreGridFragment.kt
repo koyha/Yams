@@ -1,5 +1,6 @@
 package com.example.yams
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,7 +28,7 @@ class ScoreGridFragment : Fragment() {
     private var specialTotal: Int = 0
     val scores = HashMap<Int, Int>()
     private var isPlayerTurn = false
-
+    var player: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,18 +66,12 @@ class ScoreGridFragment : Fragment() {
 
         val grandTotalCell = requireView().findViewById<TextView>(R.id.grand_total_score)
         grandTotalCell.text = (normalTotal + specialTotal).toString()
+        scores[grandTotalCell.id] = normalTotal + specialTotal
 
         it.tag = "score_set"
         it.isClickable = false
 
-
-        val bund: Bundle? = this.arguments
-        val playerName : String? = bund?.getString("player_name")
-
-        if (playerName != null) {
-            (context as GameActivity).nextFragment(playerName)
-        }
-
+        (context as GameActivity).nextFragment(this)
     }
 
     fun onInputChange(view: View = requireView()) {
@@ -95,13 +90,14 @@ class ScoreGridFragment : Fragment() {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-            it.setTextColor(Color.BLACK)
             it.isClickable = false
             if (scores[it.id] == null) {
                 it.text = "0"
+                it.setTextColor(Color.DKGRAY)
             }
             else {
                 it.text = scores[it.id].toString()
+                it.setTextColor(Color.BLACK)
             }
         }, view = view)
     }
@@ -148,11 +144,13 @@ class ScoreGridFragment : Fragment() {
             normalTotal += 35
         }
         totalCell.text = normalTotal.toString()
+        scores[totalCell.id] = normalTotal
     }
 
     private fun updateSpecialTotal() {
         val totalCell = requireView().findViewById<TextView>(R.id.total_combination_score)
         totalCell.text = specialTotal.toString()
+        scores[totalCell.id] = specialTotal
     }
 
     fun setPlayerTurn(isPlayerTurn : Boolean){
@@ -160,21 +158,11 @@ class ScoreGridFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FragmentGrille.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             ScoreGridFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putString("player_name", player)
                 }
             }
     }

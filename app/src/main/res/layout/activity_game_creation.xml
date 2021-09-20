@@ -67,12 +67,14 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/player_one"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Louis" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/player_two"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Galaad" />
 
         </LinearLayout>
     </ScrollView>
