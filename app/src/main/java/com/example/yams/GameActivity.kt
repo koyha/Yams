@@ -55,6 +55,18 @@ class GameActivity : AppCompatActivity() {
         playerTurn.text = textPlayerTurn.plus(playersName[0])
         fragments[0].setPlayerTurn(true)
 
+        playerTurn.setOnClickListener {
+            var activeFragment: ScoreGridFragment? = null
+            for (fragment in fragments) {
+                if (fragment.getPlayerTurn())
+                    activeFragment = fragment
+            }
+            if (activeFragment != null) {
+                supportFragmentManager.beginTransaction().replace(R.id.score_table, activeFragment).commit()
+                option.setSelection(fragments.indexOf(activeFragment))
+            }
+        }
+
         val scoresheetButton = findViewById<Button>(R.id.global_scoresheet_button)
         scoresheetButton.setOnClickListener {
             showGlobalScoresheet()
