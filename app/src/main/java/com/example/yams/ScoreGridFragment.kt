@@ -161,6 +161,10 @@ class ScoreGridFragment : Fragment() {
         this.isPlayerTurn = isPlayerTurn
     }
 
+    fun getPlayerTurn(): Boolean {
+        return this.isPlayerTurn
+    }
+
     fun didPlayerFinishScoreSheet(): Boolean {
         var finishedScoreSheet: Boolean = true
         onEachScoreCell({ cell ->
