@@ -2,7 +2,6 @@ package com.example.yams
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.Button
 import com.example.yams.databinding.ActivityMainBinding

@@ -47,6 +47,9 @@ class ScoreGridFragment : Fragment() {
         
         updateTable(v)
         onInputChange(v)
+
+        println(scores[R.id.chance_score])
+
         return v
     }
 
@@ -65,10 +68,10 @@ class ScoreGridFragment : Fragment() {
 
         val grandTotalCell = requireView().findViewById<TextView>(R.id.grand_total_score)
         grandTotalCell.text = (normalTotal + specialTotal).toString()
+        scores[grandTotalCell.id] = normalTotal + specialTotal
 
         it.tag = "score_set"
         it.isClickable = false
-
 
         val bund: Bundle? = this.arguments
         val playerName : String? = bund?.getString("player_name")
@@ -76,7 +79,6 @@ class ScoreGridFragment : Fragment() {
         if (playerName != null) {
             (context as GameActivity).nextFragment(playerName)
         }
-
     }
 
     fun onInputChange(view: View = requireView()) {
@@ -90,11 +92,13 @@ class ScoreGridFragment : Fragment() {
                 updateTable(view)
             }
         }, "clickable", view)}
-
     }
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
+
+//          scores[it.id] = 0 //pour tester
+
             it.setTextColor(Color.BLACK)
             it.isClickable = false
             if (scores[it.id] == null) {
@@ -145,18 +149,33 @@ class ScoreGridFragment : Fragment() {
 
         if (normalTotal >= 63 && bonusCell.text == "0") {
             bonusCell.text = 35.toString()
+            scores[bonusCell.id] = 35
             normalTotal += 35
+        } else {
+            scores[bonusCell.id] = 0
         }
         totalCell.text = normalTotal.toString()
+        scores[totalCell.id] = normalTotal
     }
 
     private fun updateSpecialTotal() {
         val totalCell = requireView().findViewById<TextView>(R.id.total_combination_score)
         totalCell.text = specialTotal.toString()
+        scores[totalCell.id] = specialTotal
     }
 
     fun setPlayerTurn(isPlayerTurn : Boolean){
         this.isPlayerTurn = isPlayerTurn
+    }
+
+    fun didPlayerFinishScoreSheet(): Boolean {
+        var finishedScoreSheet: Boolean = true
+        onEachScoreCell({ cell ->
+            if (scores[cell.id] == null){
+                finishedScoreSheet = false
+            }
+        })
+        return finishedScoreSheet
     }
 
     companion object {
