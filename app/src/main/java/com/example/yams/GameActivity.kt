@@ -29,16 +29,15 @@ class GameActivity : AppCompatActivity() {
         if (playersName != null) {
             for (playerName in playersName)
                 if (playerName != null) {
-                    val bundlePlayerName : Bundle = Bundle()
-                    bundlePlayerName.putString("playerName",playerName)
+                    val bundleScoreGridFragment : Bundle = Bundle()
+                    bundleScoreGridFragment.putString("player_name", playerName)
+
                     val fragment: ScoreGridFragment = ScoreGridFragment.newInstance(playerName,playerName)
                     fragment.inputScore = score
-                    fragment.apply { arguments = Bundle().apply{
-                        putString("playerName", playerName)}
-                    }
+                    fragment.apply { arguments = bundleScoreGridFragment }
+
                     fragments.add(fragment)
                     fragmentsMap[playerName] = fragment
-
                 }
         }
         val dice = supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
@@ -47,21 +46,19 @@ class GameActivity : AppCompatActivity() {
         option = findViewById<Spinner>(R.id.spinner)
         option.adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, playersName as ArrayList<String>)
 
-        option.onItemSelectedListener = object : AdapterView.OnItemSelectedListener,
-            AdapterView.OnItemClickListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        option.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
                 supportFragmentManager.beginTransaction().replace(R.id.score_table, fragments[position]).commit()
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-
-            override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            override fun onNothingSelected(p0: AdapterView<*>?) {
             }
         }
+        val playerTurn : TextView = findViewById<TextView>(R.id.player_turn)
+        var textPlayerTurn : String = getString(R.string.player_turn)
+        playerTurn.text = textPlayerTurn.plus(playersName[0])
+        fragments[0].setPlayerTurn(true)
     }
-
 
     fun onUpdateListener() {
         val fragment = supportFragmentManager.findFragmentById(R.id.score_table) as ScoreGridFragment
@@ -81,10 +78,18 @@ class GameActivity : AppCompatActivity() {
         } else {
             indexCurrentFragment + 1
         }
-
         val nextFragment : ScoreGridFragment = fragments[indexNextFragment]
+
         val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
         dice.clearDiceList()
+
+        val playerTurn : TextView = findViewById<TextView>(R.id.player_turn)
+        var textPlayerTurn : String = getString(R.string.player_turn)
+        playerTurn.text = textPlayerTurn.plus(fragmentsMap.keys.elementAt(indexNextFragment))
+
+        fragments[indexCurrentFragment].setPlayerTurn(false)
+        nextFragment.setPlayerTurn(true)
+
         supportFragmentManager.beginTransaction().replace(R.id.score_table, nextFragment).commit()
         option.setSelection(indexNextFragment)
     }

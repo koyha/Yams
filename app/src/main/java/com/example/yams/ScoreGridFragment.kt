@@ -26,6 +26,7 @@ class ScoreGridFragment : Fragment() {
     private var normalTotal: Int = 0
     private var specialTotal: Int = 0
     val scores = HashMap<Int, Int>()
+    private var isPlayerTurn = false
 
 
     override fun onCreateView(
@@ -45,12 +46,15 @@ class ScoreGridFragment : Fragment() {
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
             }
-            if (scores[cell.id] != 0){
+            if (scores[cell.id] != 0) {
                 cell.tag = "score_set"
             }
         }, "clickable", view = v)
 
+
         updateTable(v)
+
+        onInputChange(v)
 
         return v
     }
@@ -76,7 +80,7 @@ class ScoreGridFragment : Fragment() {
 
 
         val bund: Bundle? = this.arguments
-        val playerName : String? = bund?.getString("playerName")
+        val playerName : String? = bund?.getString("player_name")
 
         if (playerName != null) {
             (context as GameActivity).nextFragment(playerName)
@@ -84,16 +88,18 @@ class ScoreGridFragment : Fragment() {
 
     }
 
-    fun onInputChange() {
+    fun onInputChange(view: View = requireView()) {
+        if (this.isPlayerTurn){
         onEachScoreCell({ cell ->
             if (inputScore.hasDice()) {
                 cell.isClickable = true
                 cell.text = updateScore(cell)
                 cell.setTextColor(Color.BLUE)
             } else {
-                updateTable()
+                updateTable(view)
             }
-        }, "clickable")
+        }, "clickable", view)}
+
     }
 
     private fun updateTable(view: View = requireView()) {
@@ -153,6 +159,9 @@ class ScoreGridFragment : Fragment() {
         totalCell.text = specialTotal.toString()
     }
 
+    fun setPlayerTurn(isPlayerTurn : Boolean){
+        this.isPlayerTurn = isPlayerTurn
+    }
 
     companion object {
         /**
