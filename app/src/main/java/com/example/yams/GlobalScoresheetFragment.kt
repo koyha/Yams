@@ -31,9 +31,7 @@ class GlobalScoresheetFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            playersName = it.getStringArrayList("playersName") as ArrayList<String>
         }
-        println(arguments)
     }
 
     override fun onCreateView(
@@ -44,19 +42,16 @@ class GlobalScoresheetFragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_global_scoresheet, container, false)
 
         for (player in playersName) {
-            val scores = (context as GameActivity).getScores("")
             val table = v.findViewById<TableLayout>(R.id.scoresheet)
-            val row: TableRow = table.getChildAt(0) as TableRow
-            val text = TextView(context)
+            var row: TableRow = table.getChildAt(0) as TableRow
+            var text = TextView(context)
             text.text = player
             row.addView(text)
             for (i: Int in 1 until table.childCount) {
-                val row: TableRow = table.getChildAt(i) as TableRow
-                val tag = row.getChildAt(0).tag
-                val text = TextView(context)
+                row = table.getChildAt(i) as TableRow
+                text = TextView(context)
 
-                text.tag = player + "_" + tag
-                text.text = scores[getRightId(i)].toString()
+                text.text = getString(R.string.score_default)
                 row.addView(text)
             }
         }
@@ -64,24 +59,35 @@ class GlobalScoresheetFragment : Fragment() {
         return v
     }
 
-    fun getRightId(row: Int): Int {
-        return when (row) {
-            1 -> R.id.one_score
-            2 -> R.id.two_score
-            3 -> R.id.three_score
-            4 -> R.id.four_score
-            5 -> R.id.five_score
-            6 -> R.id.six_score
-            7 -> R.id.bonus_score
-            8 -> R.id.total_number_score
-            9 -> R.id.three_kind_score
-            10 -> R.id.four_kind_score
-            11 -> R.id.full_house_score
-            12 -> R.id.sm_straight_score
-            13 -> R.id.lg_straight_score
-            14 -> R.id.chance_score
-            15 -> R.id.total_combination_score
-            16 -> R.id.grand_total_score
+    fun updateCell(player: String, scores: HashMap<Int, Int>) {
+        val table = requireView().findViewById<TableLayout>(R.id.scoresheet)
+        val columnIndex = playersName.indexOf(player) + 1
+        for (key in scores.keys) {
+            val row = table.getChildAt(getRow(key)) as TableRow
+            val score = row.getChildAt(columnIndex) as TextView
+            score.text = scores[key].toString()
+        }
+    }
+
+    fun getRow(id: Int): Int {
+        return when (id) {
+            R.id.one_score -> 1
+            R.id.two_score -> 2
+            R.id.three_score -> 3
+            R.id.four_score -> 4
+            R.id.five_score -> 5
+            R.id.six_score -> 6
+            R.id.bonus_score -> 7
+            R.id.total_number_score -> 8
+            R.id.three_kind_score -> 9
+            R.id.four_kind_score -> 10
+            R.id.full_house_score -> 11
+            R.id.sm_straight_score -> 12
+            R.id.lg_straight_score ->13
+            R.id.yahtzee_score -> 14
+            R.id.chance_score -> 15
+            R.id.total_combination_score -> 16
+            R.id.grand_total_score -> 17
             else -> 0
         }
     }

@@ -9,15 +9,13 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/score_table"
-        android:name="com.example.yams.ScoreGridFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/input_dice"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/player_turn"
+        app:layout_constraintTop_toBottomOf="@+id/global_scoresheet_button"
         app:layout_constraintVertical_weight="6" />
 
     <androidx.fragment.app.FragmentContainerView
@@ -39,7 +37,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/player_turn"
+        app:layout_constraintBottom_toTopOf="@id/global_scoresheet_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -59,7 +57,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/toolbar"
-            app:layout_constraintVertical_bias="0.368"/>
+            app:layout_constraintVertical_bias="0.368" />
 
         <Spinner
             android:id="@+id/spinner"
@@ -78,23 +76,33 @@
         android:name="com.example.yams.GlobalScoresheetFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="@color/white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/global_scoresheet_button" />
 
     <TextView
         android:id="@+id/player_turn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
         android:text="@string/player_turn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/score_table"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:layout_editor_absoluteY="40dp"
-        app:layout_constraintVertical_weight="1"/>
+        app:layout_constraintEnd_toStartOf="@+id/global_scoresheet_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <Button
+        android:id="@+id/global_scoresheet_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/global_score_button"
+        app:layout_constraintBottom_toTopOf="@+id/score_table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/player_turn"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
