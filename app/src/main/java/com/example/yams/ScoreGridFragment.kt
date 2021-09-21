@@ -1,8 +1,9 @@
 package com.example.yams
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import java.io.Serializable
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,13 +24,21 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ScoreGridFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ScoreGridFragment : Fragment() {
+class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
     var inputScore: InputScore = InputScore()
     private var normalTotal: Int = 0
     private var specialTotal: Int = 0
-    val scores = HashMap<Int, Int>()
+    var scores = HashMap<Int, Int>()
     private var isPlayerTurn = false
     var player: String = ""
+
+    constructor(parcel: Parcel) : this() {
+        normalTotal = parcel.readInt()
+        specialTotal = parcel.readInt()
+        isPlayerTurn = parcel.readByte() != 0.toByte()
+        player = parcel.readString() ?: ""
+        scores = parcel.readHashMap(ClassLoader.getSystemClassLoader()) as HashMap<Int, Int>
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,17 +99,17 @@ class ScoreGridFragment : Fragment() {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-//          scores[it.id] = 0 //pour tester
+          scores[it.id] = 0 //pour tester
 
-            it.isClickable = false
-            if (scores[it.id] == null) {
-                it.text = "0"
-                it.setTextColor(Color.DKGRAY)
-            }
-            else {
-                it.text = scores[it.id].toString()
-                it.setTextColor(Color.BLACK)
-            }
+//            it.isClickable = false
+//            if (scores[it.id] == null) {
+//                it.text = "0"
+//                it.setTextColor(Color.DKGRAY)
+//            }
+//            else {
+//                it.text = scores[it.id].toString()
+//                it.setTextColor(Color.BLACK)
+//            }
         }, view = view)
     }
 
@@ -175,13 +185,25 @@ class ScoreGridFragment : Fragment() {
         return finishedScoreSheet
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() =
-            ScoreGridFragment().apply {
-                arguments = Bundle().apply {
-                    putString("player_name", player)
-                }
-            }
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(normalTotal)
+        parcel.writeInt(specialTotal)
+        parcel.writeByte(if (isPlayerTurn) 1 else 0)
+        parcel.writeString(player)
+        parcel.writeMap(scores)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<ScoreGridFragment> {
+        override fun createFromParcel(parcel: Parcel): ScoreGridFragment {
+            return ScoreGridFragment(parcel)
+        }
+
+        override fun newArray(size: Int): Array<ScoreGridFragment?> {
+            return arrayOfNulls(size)
+        }
     }
 }

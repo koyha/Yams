@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import java.io.Serializable
 import java.util.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,7 +21,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [GlobalScoresheetFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class GlobalScoresheetFragment : Fragment() {
+class GlobalScoresheetFragment: Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null

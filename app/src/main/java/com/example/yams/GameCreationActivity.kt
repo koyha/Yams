@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import com.google.android.material.textfield.TextInputEditText
 import android.widget.*
 
-private val Button.add: Unit
-    get() {}
-
 class GameCreationActivity : AppCompatActivity() {
     private var playerCount = 2
 
