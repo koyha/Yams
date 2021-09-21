@@ -1,6 +1,5 @@
 package com.example.yams
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Parcel
@@ -100,17 +99,17 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-          scores[it.id] = 0 //pour tester
-//
-//            it.isClickable = false
-//            if (scores[it.id] == null) {
-//                it.text = "0"
-//                it.setTextColor(Color.DKGRAY)
-//            }
-//            else {
-//                it.text = scores[it.id].toString()
-//                it.setTextColor(Color.BLACK)
-//            }
+//          scores[it.id] = 0 //pour tester
+
+            it.isClickable = false
+            if (scores[it.id] == null) {
+                it.text = "0"
+                it.setTextColor(Color.DKGRAY)
+            }
+            else {
+                it.text = scores[it.id].toString()
+                it.setTextColor(Color.BLACK)
+            }
         }, view = view)
     }
 

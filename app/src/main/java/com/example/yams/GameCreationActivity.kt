@@ -8,9 +8,6 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import com.google.android.material.textfield.TextInputEditText
 
-private val Button.add: Unit
-    get() {}
-
 class GameCreationActivity : AppCompatActivity() {
     companion object {
         var count: Int = 0

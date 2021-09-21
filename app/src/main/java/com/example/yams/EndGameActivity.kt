@@ -4,8 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import androidx.fragment.app.FragmentContainerView
-import java.io.Serializable
 
 class EndGameActivity : AppCompatActivity() {
 
@@ -21,12 +19,10 @@ class EndGameActivity : AppCompatActivity() {
         playersName = bund?.getStringArrayList("playersName")
         playersFragment = bund?.getParcelableArrayList<ScoreGridFragment>("playersFragment")
 
-
         val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
         if (playersName != null) {
             globalScore.setPlayers(playersName as ArrayList<String>)
         }
-
 
         val buttonChangePlayers: Button = findViewById(R.id.button_change_players)
         buttonChangePlayers.setOnClickListener(){
@@ -45,17 +41,12 @@ class EndGameActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+
         val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
-
-
         if ( playersFragment != null) {
-            println("PAS NULL")
-            globalScore.updateCell(playersFragment!![0].player, playersFragment!![0].scores)
-            println(playersFragment!![0].scores)
-        }
-        else {
-            println("NULLLLLLLLLLLLLLLLLLLLLLLLLLL")
-            println(bund)
+            for (playerFragment in playersFragment!!){
+                globalScore.updateCell(playerFragment.player, playerFragment.scores)
+            }
         }
     }
 }

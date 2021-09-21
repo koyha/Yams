@@ -7,7 +7,6 @@ import android.os.Parcelable
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.FragmentContainerView
-import java.io.Serializable
 
 class GameActivity : AppCompatActivity() {
 
@@ -108,15 +107,11 @@ class GameActivity : AppCompatActivity() {
         } else {
             val intent = Intent(this, EndGameActivity::class.java)
 
-            // TODO: Est-ce que une HashMap c'est pas mieux ?
             val bun = Bundle()
             bun.putStringArrayList("playersName", getPlayersName())
-            val globalScoreSheetFragment: GlobalScoresheetFragment = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
-
             bun.putParcelableArrayList("playersFragment", fragments as java.util.ArrayList<out Parcelable>)
 
             intent.putExtras(bun)
-            println("ETAPE 1 --------------------------------------------")
             finishAffinity()
             startActivity(intent)
         }
