@@ -3,9 +3,11 @@ package com.example.yams
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.View
 import android.widget.*
 import androidx.fragment.app.FragmentContainerView
+import java.io.Serializable
 
 class GameActivity : AppCompatActivity() {
 
@@ -17,9 +19,7 @@ class GameActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
-        val bund: Bundle? = this.intent.extras
-        val playersName = bund?.getStringArrayList("playersName")
-
+        val playersName = getPlayersName()
         val score = InputScore()
 
         val globalScore = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
@@ -107,6 +107,16 @@ class GameActivity : AppCompatActivity() {
             option.setSelection(indexNextFragment)
         } else {
             val intent = Intent(this, EndGameActivity::class.java)
+
+            // TODO: Est-ce que une HashMap c'est pas mieux ?
+            val bun = Bundle()
+            bun.putStringArrayList("playersName", getPlayersName())
+            val globalScoreSheetFragment: GlobalScoresheetFragment = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
+
+            bun.putParcelableArrayList("playersFragment", fragments as java.util.ArrayList<out Parcelable>)
+
+            intent.putExtras(bun)
+            println("ETAPE 1 --------------------------------------------")
             finishAffinity()
             startActivity(intent)
         }
@@ -132,5 +142,10 @@ class GameActivity : AppCompatActivity() {
 
     private fun gameIsOver(): Boolean{
         return fragmentsFinishedSGF.values.stream().allMatch { didPlayerFinish -> didPlayerFinish == true}
+    }
+
+    private fun getPlayersName(): ArrayList<String>? {
+        val bund: Bundle? = this.intent.extras
+        return bund?.getStringArrayList("playersName")
     }
 }

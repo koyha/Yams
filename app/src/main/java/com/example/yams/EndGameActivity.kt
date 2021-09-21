@@ -4,17 +4,29 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.fragment.app.FragmentContainerView
+import java.io.Serializable
 
 class EndGameActivity : AppCompatActivity() {
+
+    private var bund : Bundle? = null
+    private var playersName : ArrayList<String>? = null
+    private var playersFragment : ArrayList<ScoreGridFragment>? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_game)
 
-        val buttonReplay: Button = findViewById(R.id.button_replay)
-        buttonReplay.setOnClickListener(){
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+        bund = this.intent.extras
+        playersName = bund?.getStringArrayList("playersName")
+        playersFragment = bund?.getParcelableArrayList<ScoreGridFragment>("playersFragment")
+
+
+        val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
+        if (playersName != null) {
+            globalScore.setPlayers(playersName as ArrayList<String>)
         }
+
 
         val buttonChangePlayers: Button = findViewById(R.id.button_change_players)
         buttonChangePlayers.setOnClickListener(){
@@ -28,6 +40,22 @@ class EndGameActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             finishAffinity()
             startActivity(intent)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
+
+
+        if ( playersFragment != null) {
+            println("PAS NULL")
+            globalScore.updateCell(playersFragment!![0].player, playersFragment!![0].scores)
+            println(playersFragment!![0].scores)
+        }
+        else {
+            println("NULLLLLLLLLLLLLLLLLLLLLLLLLLL")
+            println(bund)
         }
     }
 }
