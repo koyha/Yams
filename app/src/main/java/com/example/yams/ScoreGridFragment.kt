@@ -99,17 +99,17 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-//          scores[it.id] = 0 //pour tester
+          scores[it.id] = 0 //pour tester
 
-            it.isClickable = false
-            if (scores[it.id] == null) {
-                it.text = "0"
-                it.setTextColor(Color.DKGRAY)
-            }
-            else {
-                it.text = scores[it.id].toString()
-                it.setTextColor(Color.BLACK)
-            }
+//            it.isClickable = false
+//            if (scores[it.id] == null) {
+//                it.text = "0"
+//                it.setTextColor(Color.DKGRAY)
+//            }
+//            else {
+//                it.text = scores[it.id].toString()
+//                it.setTextColor(Color.BLACK)
+//            }
         }, view = view)
     }
 
