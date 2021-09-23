@@ -93,7 +93,6 @@ class GameActivity : AppCompatActivity() {
             indexCurrentFragment + 1
         }
         val nextFragment : ScoreGridFragment = fragments[indexNextFragment]
-
         currentFragment.setPlayerTurn(false)
         nextFragment.setPlayerTurn(true)
 
@@ -129,9 +128,11 @@ class GameActivity : AppCompatActivity() {
     private fun showGlobalScoresheet() {
         val scoresheet = findViewById<FragmentContainerView>(R.id.global_scoresheet)
         if (scoresheet.visibility == View.VISIBLE) {
+            scoresheet.setOnClickListener(null)
             scoresheet.visibility = View.GONE
         } else {
             scoresheet.visibility = View.VISIBLE
+            scoresheet.setOnClickListener{}
         }
     }
 

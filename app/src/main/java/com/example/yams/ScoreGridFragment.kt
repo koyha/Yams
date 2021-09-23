@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import java.io.Serializable
 
 
@@ -47,6 +48,13 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_score_grid, container, false)
 
+        if(isPlayerTurn){
+            v.setOnClickListener(null)
+        }
+        else{
+            v.setOnClickListener{ Toast.makeText(this.context, getString(R.string.not_your_turn), Toast.LENGTH_SHORT).show()}
+        }
+
         onEachScoreCell({ cell ->
             cell.setOnClickListener {
                 onCellClicked(it as TextView)
@@ -55,7 +63,6 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
                 cell.tag = "score_set"
             }
         }, "clickable", view = v)
-        
         updateTable(v)
         onInputChange(v)
         return v
@@ -99,17 +106,17 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-          scores[it.id] = 0 //pour tester
+//          scores[it.id] = 0 //pour tester
 
-//            it.isClickable = false
-//            if (scores[it.id] == null) {
-//                it.text = "0"
-//                it.setTextColor(Color.DKGRAY)
-//            }
-//            else {
-//                it.text = scores[it.id].toString()
-//                it.setTextColor(Color.BLACK)
-//            }
+            it.isClickable = false
+            if (scores[it.id] == null) {
+                it.text = "0"
+                it.setTextColor(Color.DKGRAY)
+            }
+            else {
+                it.text = scores[it.id].toString()
+                it.setTextColor(Color.BLACK)
+            }
         }, view = view)
     }
 
