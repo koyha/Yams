@@ -9,10 +9,10 @@
     <Button
         android:id="@+id/button_change_players"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/button_change_players"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintRight_toLeftOf="@+id/button_endgame_to_homepage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintVertical_weight="1" />
@@ -20,34 +20,35 @@
     <Button
         android:id="@+id/button_endgame_to_homepage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/button_endgame_to_homepage"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_weight="2"
         app:layout_constraintLeft_toRightOf="@id/button_change_players"
         app:layout_constraintVertical_weight="1" />
     <!-- TODO: mettre le nom du gagnant -->
     <TextView
         android:id="@+id/textview_winner"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:maxHeight="50dp"
         android:text="@string/app_name"
         app:layout_constraintBottom_toTopOf="@+id/end_game_global_score_sheet"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_weight="2"/>
+        app:layout_constraintVertical_weight="1"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/end_game_global_score_sheet"
         android:name="com.example.yams.GlobalScoresheetFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textview_winner"
-        app:layout_constraintVertical_weight="9"
+        app:layout_constraintVertical_weight="14"
         app:layout_constraintBottom_toTopOf="@id/button_endgame_to_homepage"/>
 
 
