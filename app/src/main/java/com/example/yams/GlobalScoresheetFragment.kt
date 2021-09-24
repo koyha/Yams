@@ -1,6 +1,8 @@
 package com.example.yams
 
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,30 +11,17 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import java.io.Serializable
-import java.util.ArrayList
+import java.util.*
+import kotlin.collections.HashMap
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [GlobalScoresheetFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class GlobalScoresheetFragment: Fragment() {
+class GlobalScoresheetFragment() : Fragment(), Parcelable {
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
     private var playersName: ArrayList<String> = ArrayList()
+    private var scores : HashMap<String, ArrayList<Int>> = HashMap()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
+    constructor(parcel: Parcel) : this() {
+        playersName = parcel.readArrayList(ClassLoader.getSystemClassLoader()) as ArrayList<String>
+        scores = parcel.readHashMap(ClassLoader.getSystemClassLoader()) as HashMap<String, ArrayList<Int>>
     }
 
     override fun onCreateView(
@@ -51,26 +40,34 @@ class GlobalScoresheetFragment: Fragment() {
             for (i: Int in 1 until table.childCount) {
                 row = table.getChildAt(i) as TableRow
                 text = TextView(context)
-
-                text.text = getString(R.string.score_default)
                 row.addView(text)
             }
         }
 
+        showTable(v)
         return v
     }
 
     fun updateCell(player: String, scores: HashMap<Int, Int>) {
-        val table = requireView().findViewById<TableLayout>(R.id.scoresheet)
-        val columnIndex = playersName.indexOf(player) + 1
         for (key in scores.keys) {
-            val row = table.getChildAt(getRow(key)) as TableRow
-            val score = row.getChildAt(columnIndex) as TextView
-            score.text = scores[key].toString()
+            this.scores[player]?.set(getRow(key) - 1, scores[key]!!)
+        }
+        showTable(requireView())
+    }
+
+    private fun showTable(view: View) {
+        val table = view.findViewById<TableLayout>(R.id.scoresheet)
+        for (playerIndex in playersName.indices) {
+            for (i: Int in 1 until table.childCount) {
+                val row = table.getChildAt(i) as TableRow
+                val text = row.getChildAt(playerIndex) as TextView
+
+                text.text = (this.scores[playersName[playerIndex]]?.get(i - 1)).toString()
+            }
         }
     }
 
-    fun getRow(id: Int): Int {
+    private fun getRow(id: Int): Int {
         return when (id) {
             R.id.one_score -> 1
             R.id.two_score -> 2
@@ -95,25 +92,31 @@ class GlobalScoresheetFragment: Fragment() {
 
     fun setPlayers(playersList: ArrayList<String>) {
         this.playersName = playersList
+        for (player in playersList) {
+            scores[player] = ArrayList(Collections.nCopies(17, 0))
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment GlobalScoresheetFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(bundle: Bundle) =
-            GlobalScoresheetFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    fun getScores(): HashMap<String, ArrayList<Int>> {
+        return scores
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeArray(playersName.toArray())
+        parcel.writeMap(scores)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<GlobalScoresheetFragment> {
+        override fun createFromParcel(parcel: Parcel): GlobalScoresheetFragment {
+            return GlobalScoresheetFragment(parcel)
+        }
+
+        override fun newArray(size: Int): Array<GlobalScoresheetFragment?> {
+            return arrayOfNulls(size)
+        }
     }
 }

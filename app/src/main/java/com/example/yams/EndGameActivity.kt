@@ -7,22 +7,17 @@ import android.widget.Button
 import android.widget.TextView
 
 class EndGameActivity : AppCompatActivity() {
-
-    private var bund : Bundle? = null
-    private var playersName : ArrayList<String>? = null
-    private var playersFragment : ArrayList<ScoreGridFragment>? = null
+    private var globalScoresheet : GlobalScoresheetFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_game)
 
-        bund = this.intent.extras
-        playersName = bund?.getStringArrayList("playersName")
-        playersFragment = bund?.getParcelableArrayList<ScoreGridFragment>("playersFragment")
+        val bund = this.intent.extras
+        globalScoresheet = bund?.getParcelable("global")
 
-        val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
-        if (playersName != null) {
-            globalScore.setPlayers(playersName as ArrayList<String>)
+        if (globalScoresheet != null) {
+            supportFragmentManager.beginTransaction().replace(R.id.end_game_global_score_sheet, globalScoresheet!!).commit()
         }
 
         val buttonChangePlayers: Button = findViewById(R.id.button_change_players)
@@ -43,22 +38,18 @@ class EndGameActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        val globalScore = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
-        if ( playersFragment != null) {
-            for (playerFragment in playersFragment!!){
-                globalScore.updateCell(playerFragment.player, playerFragment.scores)
-            }
-        }
         showWinnerName()
     }
 
     private fun showWinnerName(){
         val winnerTextView = findViewById<TextView>(R.id.textview_winner)
-        var playersGrandTotal : HashMap<String, Int> = HashMap()
+        val playersGrandTotal : HashMap<String, Int> = HashMap()
 
-        for (playerFragment in playersFragment!!) {
-            playersGrandTotal[playerFragment.player] = playerFragment.scores[R.id.grand_total_score]!!
-            }
+        val scoreMap = globalScoresheet!!.getScores()
+
+        for (playerName in scoreMap.keys) {
+            playersGrandTotal[playerName] = scoreMap[playerName]!!.last()
+        }
 
         val highestScore = playersGrandTotal.maxOf { it.value }
         val winner = playersGrandTotal.filter { highestScore == it.value }.keys.toList()
