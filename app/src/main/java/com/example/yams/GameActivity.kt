@@ -85,6 +85,10 @@ class GameActivity : AppCompatActivity() {
         val dice = this.supportFragmentManager.findFragmentById(R.id.input_dice) as InputDice
         dice.clearDiceList()
 
+        // Update global scores
+        val globalScoresheet = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
+        globalScoresheet.updateCell(currentFragment.player, currentFragment.scores)
+
         // Change active player fragment
         val indexCurrentFragment: Int = fragments.indexOf(currentFragment)
         val indexNextFragment : Int = if (indexCurrentFragment == (fragments.size - 1)){
@@ -107,8 +111,7 @@ class GameActivity : AppCompatActivity() {
             val intent = Intent(this, EndGameActivity::class.java)
 
             val bun = Bundle()
-            bun.putStringArrayList("playersName", getPlayersName())
-            bun.putParcelableArrayList("playersFragment", fragments as java.util.ArrayList<out Parcelable>)
+            bun.putParcelable("global", supportFragmentManager.findFragmentById(R.id.global_scoresheet) as Parcelable)
 
             intent.putExtras(bun)
             finishAffinity()
@@ -119,10 +122,6 @@ class GameActivity : AppCompatActivity() {
         val playerTurnTextView = findViewById<TextView>(R.id.player_turn)
         val textPlayerTurn = getString(R.string.player_turn)
         playerTurnTextView.text = textPlayerTurn.plus(nextFragment.player)
-
-        // Update global scores
-        val globalScoresheet = supportFragmentManager.findFragmentById(R.id.global_scoresheet) as GlobalScoresheetFragment
-        globalScoresheet.updateCell(currentFragment.player, currentFragment.scores)
     }
 
     private fun showGlobalScoresheet() {
