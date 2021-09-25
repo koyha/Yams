@@ -10,7 +10,7 @@
         android:id="@+id/textview_title_stats"
         android:layout_width="258dp"
         android:layout_height="61dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="52dp"
         android:scaleX="1"
         android:scaleY="1"
         android:text="@string/stats_activity_title"
@@ -20,17 +20,6 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_games_stats"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="352dp"
-        android:text="@string/placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview_title_stats" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/header"
@@ -51,5 +40,34 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/abc_vector_test" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview_history"
+        android:layout_width="196dp"
+        android:layout_height="174dp"
+        app:layout_constraintBottom_toTopOf="@id/history_global_scoresheet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_title_stats"
+        app:layout_constraintVertical_bias="0.017">
+
+        <LinearLayout
+            android:id="@+id/linear_layout_history"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/history_global_scoresheet"
+        android:name="com.example.yams.GlobalScoresheetFragment"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollview_history" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
