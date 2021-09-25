@@ -25,21 +25,13 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ScoreGridFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
+class ScoreGridFragment : Fragment() {
     var inputScore: InputScore = InputScore()
     private var normalTotal: Int = 0
     private var specialTotal: Int = 0
     var scores = HashMap<Int, Int>()
     private var isPlayerTurn = false
     var player: String = ""
-
-    constructor(parcel: Parcel) : this() {
-        normalTotal = parcel.readInt()
-        specialTotal = parcel.readInt()
-        isPlayerTurn = parcel.readByte() != 0.toByte()
-        player = parcel.readString() ?: ""
-        scores = parcel.readHashMap(ClassLoader.getSystemClassLoader()) as HashMap<Int, Int>
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -190,27 +182,5 @@ class ScoreGridFragment() : Fragment(), Serializable, Parcelable {
             }
         })
         return finishedScoreSheet
-    }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(normalTotal)
-        parcel.writeInt(specialTotal)
-        parcel.writeByte(if (isPlayerTurn) 1 else 0)
-        parcel.writeString(player)
-        parcel.writeMap(scores)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<ScoreGridFragment> {
-        override fun createFromParcel(parcel: Parcel): ScoreGridFragment {
-            return ScoreGridFragment(parcel)
-        }
-
-        override fun newArray(size: Int): Array<ScoreGridFragment?> {
-            return arrayOfNulls(size)
-        }
     }
 }
