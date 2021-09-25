@@ -20,7 +20,7 @@
     <string name="options_activity_title">Options Page</string>
 
     <!-- StatsActivity-->
-    <string name="stats_activity_title">Stats Page</string>
+    <string name="stats_activity_title">History</string>
 
     <!-- GameActivity-->
     <string name="one_box">Aces</string>

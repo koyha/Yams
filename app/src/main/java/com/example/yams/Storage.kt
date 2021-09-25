@@ -36,7 +36,7 @@ class Storage {
         }
     }
 
-    public  fun getStoredFragmentsList(context: Context): ArrayList<String> {
+    public fun getStoredFragmentsList(context: Context): ArrayList<String> {
         val list = ArrayList<String>()
         val files = context.fileList()
         for (file in files){
@@ -44,4 +44,12 @@ class Storage {
         }
         return list
     }
+
+    public fun deleteGame(context: Context, file: String) {
+        if (file != null) {
+            context.deleteFile(file)
+                println("file Deleted :" + file)
+
+            }
+        }
 }
