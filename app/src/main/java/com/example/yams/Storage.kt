@@ -10,7 +10,6 @@ import java.util.stream.Collectors
 
 class Storage {
 
-    //TODO: Changer le nom du file que l'on save
     public fun saveFragmentObject(context: Context, myFrag : GlobalScoresheetFragment) {
         try
         {
@@ -24,13 +23,18 @@ class Storage {
         }
     }
 
-    public fun loadFragmentObject(context: Context, file: String): GlobalScoresheetFragment {
-        //TODO: ajouter un try catch ?
-        var myFrag: GlobalScoresheetFragment
-        val fileInputStream = FileInputStream((context.getFilesDir()).toString().plus("/filename"));
-        val objectInputStream = ObjectInputStream(fileInputStream);
-        myFrag = objectInputStream.readObject() as GlobalScoresheetFragment
-        return myFrag
+    public fun loadFragmentObject(context: Context, file: String): GlobalScoresheetFragment? {
+        try {
+            var myFrag: GlobalScoresheetFragment
+            val fileInputStream =
+                FileInputStream((context.getFilesDir()).toString().plus("/filename"));
+            val objectInputStream = ObjectInputStream(fileInputStream);
+            myFrag = objectInputStream.readObject() as GlobalScoresheetFragment
+            return myFrag
+        } catch (e : IOException){
+            e.printStackTrace()
+            return null
+        }
     }
 
     public  fun getStoredFragmentsList(context: Context): ArrayList<String> {
@@ -42,7 +46,7 @@ class Storage {
         return list
     }
 
-    public fun saveObject(context: Context, myHashMap : HashMap<Int, String>) {
+    public fun saveHashMap(context: Context, myHashMap : HashMap<Int, String>) {
         try
         {
             val fos = context.openFileOutput("filenameHashMap.ser", Context.MODE_PRIVATE);
@@ -54,7 +58,7 @@ class Storage {
         }
     }
 
-    public fun loadObject(context: Context) {
+    public fun loadObjectHashMap(context: Context) {
         try
         {
             val fileInputStream = FileInputStream((context.getFilesDir()).toString().plus("/filenameHashMap.ser"));
