@@ -11,11 +11,11 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import java.io.Serializable
+import java.util.ArrayList
 import java.util.*
 import kotlin.collections.HashMap
 
-class GlobalScoresheetFragment() : Fragment(), Parcelable {
-    // TODO: Rename and change types of parameters
+class GlobalScoresheetFragment() : Fragment(), Serializable,  Parcelable {
     private var playersName: ArrayList<String> = ArrayList()
     private var scores : HashMap<String, ArrayList<Int>> = HashMap()
 
