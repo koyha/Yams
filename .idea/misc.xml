@@ -29,6 +29,7 @@
         <entry key="app/src/main/res/drawable/dice_6.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/frame_input_dices.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/global_scoresheet_cell.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/history_button.xml" value="0.246875" />
         <entry key="app/src/main/res/drawable/outline_bottom.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/outline_bottom_left_right.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/outline_bottom_right.xml" value="0.4484375" />
