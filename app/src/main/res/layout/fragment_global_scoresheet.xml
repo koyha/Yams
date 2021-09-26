@@ -10,17 +10,17 @@
         android:id="@+id/players_scores"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:maxWidth="200dp"
-        app:layout_constraintHorizontal_weight="2"
-        app:layout_constraintLeft_toRightOf="@id/scoresheet_categories"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintHorizontal_weight="2.5"
+        app:layout_constraintLeft_toRightOf="@id/scoresheet_categories"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
             android:id="@+id/scoresheet"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:background="@color/outline"
             android:stretchColumns="*">
 
             <TableRow
@@ -120,264 +120,337 @@
         android:id="@+id/scoresheet_categories"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/players_scores">
+        app:layout_constraintRight_toLeftOf="@id/players_scores"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableLayout
             android:id="@+id/scoresheet_titles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/outline"
             android:stretchColumns="*">
 
             <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/name_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:text="@string/name_title" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/aces_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="one"
                     android:text="@string/one_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/twos_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="two"
                     android:text="@string/two_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/threes_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="three"
                     android:text="@string/three_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/fours_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="four"
                     android:text="@string/four_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/fives_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="five"
                     android:text="@string/five_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/sixes_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="six"
                     android:text="@string/six_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/bonus_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="bonus"
                     android:text="@string/bonus_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/normal_total_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="total_number"
                     android:text="@string/total_number_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/three_kind_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="three_kind"
                     android:text="@string/three_kind_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/four_kind_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="four_kind"
                     android:text="@string/four_kind_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/full_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="full"
                     android:text="@string/full_house_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/sm_straight_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="sm_straight"
                     android:text="@string/sm_straight_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/lg_straight_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="lg_straight"
                     android:text="@string/lg_straight_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/yathzee_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="yathzee"
                     android:text="@string/yahtzee_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/chance_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="chance"
                     android:text="@string/chance_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/special_total_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="total_special"
                     android:text="@string/total_combination_box" />
 
             </TableRow>
 
             <TableRow
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/grand_total_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/margin_box"
+                    android:background="@color/background_box"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="5dp"
                     android:tag="grand_total"
                     android:text="@string/grand_total_box" />
 
