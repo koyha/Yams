@@ -45,6 +45,7 @@
         <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
         <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_score_grid.xml" value="0.26902173913043476" />
+        <entry key="app/src/main/res/layout/history_stats.xml" value="0.21023302938196556" />
         <entry key="app/src/main/res/layout/sample_custom_button.xml" value="0.21023302938196556" />
       </map>
     </option>
