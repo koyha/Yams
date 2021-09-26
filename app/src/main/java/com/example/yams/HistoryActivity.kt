@@ -10,7 +10,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.FragmentContainerView
 
-class StatsActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity() {
     private val storage = Storage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
