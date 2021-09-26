@@ -120,8 +120,8 @@ class GameActivity : AppCompatActivity() {
 
         // Change active player text
         val playerTurnTextView = findViewById<TextView>(R.id.player_turn)
-        val textPlayerTurn = getString(R.string.player_turn)
-        playerTurnTextView.text = textPlayerTurn.plus(nextFragment.player)
+        val textPlayerTurn = getString(R.string.player_turn, nextFragment.player)
+        playerTurnTextView.text = textPlayerTurn
     }
 
     private fun showGlobalScoresheet() {

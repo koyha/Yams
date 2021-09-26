@@ -40,7 +40,7 @@
     <string name="chance_box">Chance</string>
     <string name="total_combination_box">Total</string>
 
-    <string name="player_turn">Turn of\u0020</string>
+    <string name="player_turn">Turn of %1$s</string>
 
     <!-- EndGameActivity-->
     <string name="button_replay">Replay</string>
