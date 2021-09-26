@@ -47,16 +47,7 @@ class EndGameActivity : AppCompatActivity() {
 
     private fun showWinnerName(){
         val winnerTextView = findViewById<TextView>(R.id.textview_winner)
-        val playersGrandTotal : HashMap<String, Int> = HashMap()
-
-        val scoreMap = globalScoresheet!!.getScores()
-
-        for (playerName in scoreMap.keys) {
-            playersGrandTotal[playerName] = scoreMap[playerName]!!.last()
-        }
-
-        val highestScore = playersGrandTotal.maxOf { it.value }
-        val winner = playersGrandTotal.filter { highestScore == it.value }.keys.toList()
+        val winner = globalScoresheet!!.getWinners()
 
         if (winner.size >= 2){
             var txt = ""
