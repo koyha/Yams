@@ -27,11 +27,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, StatsActivity::class.java)
             startActivity(intent)
         }
-
-        val buttonOptions: Button = findViewById(R.id.button_homepage_to_options)
-        buttonOptions.setOnClickListener(){
-            val intent = Intent(this, OptionsActivity::class.java)
-            startActivity(intent)
-        }
     }
 }
