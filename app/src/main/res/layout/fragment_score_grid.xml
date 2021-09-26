@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/outline"
     android:padding="@dimen/margin_box"
-    android:stretchColumns="0,1,2,3"
+    android:stretchColumns="*"
     tools:context=".ScoreGridFragment">
 
     <TableRow
@@ -17,9 +17,10 @@
 
         <TextView
             android:id="@+id/one_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/one_box"
@@ -29,10 +30,10 @@
 
         <TextView
             android:id="@+id/one_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_column="1"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -43,9 +44,10 @@
 
         <TextView
             android:id="@+id/three_kind_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/three_kind_box"
@@ -55,9 +57,10 @@
 
         <TextView
             android:id="@+id/three_kind_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -73,9 +76,10 @@
 
         <TextView
             android:id="@+id/two_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/two_box"
@@ -85,9 +89,10 @@
 
         <TextView
             android:id="@+id/two_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -98,9 +103,10 @@
 
         <TextView
             android:id="@+id/four_kind_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/four_kind_box"
@@ -110,9 +116,10 @@
 
         <TextView
             android:id="@+id/four_kind_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -133,9 +140,10 @@
 
         <TextView
             android:id="@+id/three_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/three_box"
@@ -145,9 +153,10 @@
 
         <TextView
             android:id="@+id/three_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -158,9 +167,10 @@
 
         <TextView
             android:id="@+id/full_house_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/full_house_box"
@@ -170,9 +180,10 @@
 
         <TextView
             android:id="@+id/full_house_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -192,9 +203,10 @@
 
         <TextView
             android:id="@+id/four_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/four_box"
@@ -204,9 +216,10 @@
 
         <TextView
             android:id="@+id/four_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -217,9 +230,10 @@
 
         <TextView
             android:id="@+id/sm_straight_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/sm_straight_box"
@@ -229,9 +243,10 @@
 
         <TextView
             android:id="@+id/sm_straight_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -251,9 +266,10 @@
 
         <TextView
             android:id="@+id/five_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/five_box"
@@ -263,9 +279,10 @@
 
         <TextView
             android:id="@+id/five_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -276,9 +293,10 @@
 
         <TextView
             android:id="@+id/lg_straight_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/lg_straight_box"
@@ -288,9 +306,10 @@
 
         <TextView
             android:id="@+id/lg_straight_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -310,9 +329,10 @@
 
         <TextView
             android:id="@+id/six_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/six_box"
@@ -322,9 +342,10 @@
 
         <TextView
             android:id="@+id/six_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_normal"
@@ -335,9 +356,10 @@
 
         <TextView
             android:id="@+id/yahtzee_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/yahtzee_box"
@@ -347,9 +369,10 @@
 
         <TextView
             android:id="@+id/yahtzee_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -369,9 +392,10 @@
 
         <TextView
             android:id="@+id/bonus_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/bonus_box"
@@ -381,9 +405,10 @@
 
         <TextView
             android:id="@+id/bonus_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score"
@@ -394,9 +419,10 @@
 
         <TextView
             android:id="@+id/yathzee_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/chance_box"
@@ -406,9 +432,10 @@
 
         <TextView
             android:id="@+id/chance_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score_clickable_special"
@@ -428,9 +455,10 @@
 
         <TextView
             android:id="@+id/total_number_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/total_number_box"
@@ -440,9 +468,10 @@
 
         <TextView
             android:id="@+id/total_number_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score"
@@ -453,9 +482,10 @@
 
         <TextView
             android:id="@+id/total_combination_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/total_combination_box"
@@ -465,9 +495,10 @@
 
         <TextView
             android:id="@+id/total_combination_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
+            android:layout_weight="1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score"
@@ -487,9 +518,10 @@
 
         <TextView
             android:id="@+id/grand_total_title"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
+            android:layout_weight="2"
             android:background="@color/background_box"
             android:gravity="center"
             android:text="@string/grand_total_box"
@@ -499,10 +531,10 @@
 
         <TextView
             android:id="@+id/grand_total_score"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_box"
-            android:layout_span="3"
+            android:layout_weight="4.1"
             android:background="@color/background_score"
             android:gravity="center"
             android:tag="score"
