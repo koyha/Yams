@@ -39,6 +39,10 @@ class EndGameActivity : AppCompatActivity() {
         super.onStart()
 
         showWinnerName()
+
+        val storage = Storage()
+        val frag = supportFragmentManager.findFragmentById(R.id.end_game_global_score_sheet) as GlobalScoresheetFragment
+        storage.saveFragmentObject(this.applicationContext, frag)
     }
 
     private fun showWinnerName(){
