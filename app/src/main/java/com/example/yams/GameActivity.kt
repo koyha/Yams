@@ -53,8 +53,8 @@ class GameActivity : AppCompatActivity() {
         }
 
         val playerTurn = findViewById<TextView>(R.id.player_turn)
-        val textPlayerTurn : String = getString(R.string.player_turn)
-        playerTurn.text = textPlayerTurn.plus(playersName[0])
+        val textPlayerTurn : String = getString(R.string.player_turn, playersName[0])
+        playerTurn.text = textPlayerTurn
         fragments[0].setPlayerTurn(true)
 
         playerTurn.setOnClickListener {
