@@ -10,12 +10,12 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.FragmentContainerView
 
-class StatsActivity : AppCompatActivity() {
+class HistoryActivity : AppCompatActivity() {
     private val storage = Storage()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stats)
+        setContentView(R.layout.history_stats)
 
         val backButton: ImageButton = findViewById (R.id.back_button)
         backButton.setOnClickListener() {

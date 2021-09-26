@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StatsActivity">
+    tools:context=".HistoryActivity">
 
     <TextView
         android:id="@+id/textview_title_stats"
@@ -13,7 +13,7 @@
         android:layout_marginTop="52dp"
         android:scaleX="1"
         android:scaleY="1"
-        android:text="@string/stats_activity_title"
+        android:text="@string/history_activity_title"
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"

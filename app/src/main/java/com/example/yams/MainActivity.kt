@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val buttonStats: Button = findViewById (R.id.button_homepage_to_stats)
+        val buttonStats: Button = findViewById (R.id.button_homepage_to_history)
         buttonStats.setOnClickListener() {
-            val intent = Intent(this, StatsActivity::class.java)
+            val intent = Intent(this, HistoryActivity::class.java)
             startActivity(intent)
         }
     }

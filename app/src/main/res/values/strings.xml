@@ -7,7 +7,7 @@
     <!-- MainActivity-->
     <string name="play_button">Play</string>
     <string name="options_button">Options</string>
-    <string name="stats_button">Stats</string>
+    <string name="history_button">History</string>
 
     <!-- GameCreationActivity-->
     <string name="game_creation_activity_title">Select players</string>
@@ -16,8 +16,8 @@
     <string name="error_empty">You have an empty player name</string>
     <string name="error_duplicate">Two players have the same name</string>
 
-    <!-- StatsActivity-->
-    <string name="stats_activity_title">History</string>
+    <!-- HistoryActivity-->
+    <string name="history_activity_title">History</string>
 
     <!-- GameActivity-->
     <string name="one_box">Aces</string>
@@ -40,7 +40,7 @@
     <string name="chance_box">Chance</string>
     <string name="total_combination_box">Total</string>
 
-    <string name="player_turn">It is the turn of -></string>
+    <string name="player_turn">Turn of %1$s</string>
 
     <!-- EndGameActivity-->
     <string name="button_replay">Replay</string>
