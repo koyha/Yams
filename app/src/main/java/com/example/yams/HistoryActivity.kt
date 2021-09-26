@@ -15,7 +15,7 @@ class HistoryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_stats)
+        setContentView(R.layout.history_stats)
 
         val backButton: ImageButton = findViewById (R.id.back_button)
         backButton.setOnClickListener() {
