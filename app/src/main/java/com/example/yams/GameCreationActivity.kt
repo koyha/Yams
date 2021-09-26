@@ -3,34 +3,17 @@ package com.example.yams
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.textfield.TextInputEditText
 import android.widget.*
+import androidx.core.content.res.ResourcesCompat
 
 class GameCreationActivity : AppCompatActivity() {
-    private var playerCount = 2
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_creation)
 
-        // For production: Remove player inputs in XML
-        // Then add next line
-        // addPlayerInput()
-
-        // Also remove all that
-        val deleteButton: Button = findViewById(R.id.delete_button)
-        deleteButton.setOnClickListener {
-            val playerBox = it.parent as View
-            (playerBox.parent as ViewGroup).removeView(playerBox)
-        }
-        val deleteButton2: Button = findViewById(R.id.delete_button2)
-        deleteButton2.setOnClickListener {
-            val playerBox = it.parent as View
-            (playerBox.parent as ViewGroup).removeView(playerBox)
-        }
-
+         addPlayerInput()
 
         val layoutInputBox: LinearLayout = findViewById(R.id.linear_layout_inputs_text)
         val buttonAddInputText: Button = findViewById(R.id.button_add_input_text)
@@ -71,29 +54,39 @@ class GameCreationActivity : AppCompatActivity() {
         }
     }
 
-    private fun getInputPlaceholder(): String {
-        this.playerCount += 1
-        return getString(R.string.player, this.playerCount)
-    }
-
     private fun addPlayerInput() {
         val layoutInputBox: LinearLayout = findViewById(R.id.linear_layout_inputs_text)
         val playerBox = LinearLayout(this)
         playerBox.orientation = LinearLayout.HORIZONTAL
 
         val inputText = TextInputEditText(this)
-        inputText.hint = getInputPlaceholder()
         inputText.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 1f)
         playerBox.addView(inputText)
 
         val deleteButton = Button(this)
         deleteButton.text = "-"
+        deleteButton.setTextColor(getColor(R.color.white))
         deleteButton.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, 5f)
+        deleteButton.background = ResourcesCompat.getDrawable(resources, R.drawable.button, null)
+        (deleteButton.layoutParams as ViewGroup.MarginLayoutParams).setMargins(0, 10, 0, 10)
         deleteButton.setOnClickListener {
             layoutInputBox.removeView(playerBox)
+            updateHints()
         }
         playerBox.addView(deleteButton)
 
         layoutInputBox.addView(playerBox)
+
+        updateHints()
+        inputText.requestFocus()
+        findViewById<ScrollView>(R.id.scrollView).scrollToDescendant(playerBox)
+    }
+
+    private fun updateHints() {
+        val layout = findViewById<LinearLayout>(R.id.linear_layout_inputs_text)
+        for (i in 0 until layout.childCount) {
+            val text = (layout.getChildAt(i) as ViewGroup).getChildAt(0) as TextInputEditText
+            text.hint = getString(R.string.player, i + 1)
+        }
     }
 }
