@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="margin_box">1.5dp</dimen>
-    <dimen name="margin_score">1.5dp</dimen>
+    <dimen name="margin_box">0dp</dimen>
+    <dimen name="margin_score">0dp</dimen>
 
-    <color name="background_box">@color/white</color>
-    <color name="background_score">@color/purple_200</color>
-    <color name="background_total">@color/gray_400</color>
+    <drawable name="background_box">@drawable/sg_box_outline_bottom_right</drawable>
+    <drawable name="background_score">@drawable/sg_score_outline_bottom_right</drawable>
+    <drawable name="background_score_set">@drawable/sg_score_set_outline_bottom_right</drawable>
+    <drawable name="background_box_left">@drawable/sg_box_outline_left_bottom_right</drawable>
+
+    <color name="background_color_score_set">@color/blue</color>
+
+    <color name="background_color_box">@color/teal_700</color>
+    <color name="background_color_score">@color/gray_400</color>
+
+    <color name="color_score">@color/gray_600</color>
+    <color name="color_score_set">@color/black</color>
+    <color name="color_score_preview">@color/green_400</color>
+
+
 
     <color name="outline">@color/black</color>
 </resources>

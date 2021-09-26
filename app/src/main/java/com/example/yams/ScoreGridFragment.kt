@@ -1,9 +1,6 @@
 package com.example.yams
 
-import android.graphics.Color
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +9,7 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import android.widget.Toast
-import java.io.Serializable
+import androidx.core.content.res.ResourcesCompat
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -89,7 +86,7 @@ class ScoreGridFragment : Fragment() {
             if (inputScore.hasDice()) {
                 cell.isClickable = true
                 cell.text = updateScore(cell)
-                cell.setTextColor(Color.BLUE)
+                cell.setTextColor(ResourcesCompat.getColor(resources, R.color.color_score_preview, null))
             } else {
                 updateTable(view)
             }
@@ -103,11 +100,15 @@ class ScoreGridFragment : Fragment() {
             it.isClickable = false
             if (scores[it.id] == null) {
                 it.text = "0"
-                it.setTextColor(Color.DKGRAY)
-            }
-            else {
+                it.setTextColor(ResourcesCompat.getColor(resources, R.color.color_score, null))
+            } else {
                 it.text = scores[it.id].toString()
-                it.setTextColor(Color.BLACK)
+                it.setTextColor(ResourcesCompat.getColor(resources, R.color.color_score_set, null))
+                if( (it.parent.parent as ViewGroup).indexOfChild(it.parent as ViewGroup) == 0 ) {
+                    it.background = ResourcesCompat.getDrawable(resources, R.drawable.sg_score_set_outline_bottom_right_top, null)
+                } else {
+                    it.background = ResourcesCompat.getDrawable(resources, R.drawable.sg_score_set_outline_bottom_right, null)
+                }
             }
         }, view = view)
     }
