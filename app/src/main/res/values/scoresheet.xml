@@ -5,7 +5,7 @@
 
     <color name="background_box">@color/white</color>
     <color name="background_score">@color/purple_200</color>
-    <color name="background_total">@color/gray_400</color>
+    <color name="background_total">@color/yellow</color>
 
-    <color name="outline">@color/black</color>
+    <color name="outline">@color/dark_purple</color>
 </resources>
