@@ -1,5 +1,6 @@
 package com.example.yams
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
@@ -7,9 +8,7 @@ import android.util.DisplayMetrics
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.*
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.setMargins
+import androidx.core.content.res.ResourcesCompat
 import java.io.Serializable
 import java.util.ArrayList
 import java.util.*
@@ -41,9 +40,8 @@ class GlobalScoresheetFragment() : Fragment(), Serializable,  Parcelable {
             var row: TableRow = table.getChildAt(0) as TableRow
             var text = TextView(context)
 
-            text.background = ContextCompat.getColor(requireContext(), R.color.background_box).toDrawable()
+            text.background = ResourcesCompat.getDrawable(resources, R.drawable.outline_bottom, null)
             text.layoutParams = TableRow.LayoutParams(cellWidth, TableRow.LayoutParams.MATCH_PARENT)
-            (text.layoutParams as ViewGroup.MarginLayoutParams).setMargins(resources.getDimensionPixelSize(R.dimen.margin_box))
             text.gravity = Gravity.CENTER_VERTICAL
             text.setPadding(resources.getDimensionPixelSize(R.dimen.text_padding), 0, resources.getDimensionPixelSize(R.dimen.text_padding), 0)
             text.maxLines = 1
@@ -54,9 +52,13 @@ class GlobalScoresheetFragment() : Fragment(), Serializable,  Parcelable {
                 row = table.getChildAt(i) as TableRow
                 text = TextView(context)
 
-                text.background = ContextCompat.getColor(requireContext(), R.color.background_box).toDrawable()
+                val drawable = when (i) {
+                    8, 16, 17 -> R.drawable.total_row
+                    else -> R.drawable.outline_bottom_right
+                }
+
+                text.background = ResourcesCompat.getDrawable(resources, drawable, null)
                 text.layoutParams = TableRow.LayoutParams(cellWidth, TableRow.LayoutParams.MATCH_PARENT)
-                (text.layoutParams as ViewGroup.MarginLayoutParams).setMargins(resources.getDimensionPixelSize(R.dimen.margin_box))
                 text.gravity = Gravity.CENTER_VERTICAL
                 text.setPadding(resources.getDimensionPixelSize(R.dimen.text_padding), 0, 0, 0)
 
@@ -75,6 +77,24 @@ class GlobalScoresheetFragment() : Fragment(), Serializable,  Parcelable {
         showTable(requireView())
     }
 
+    fun getWinners(): ArrayList<String> {
+        var winners = ArrayList<String>()
+        winners.add("")
+
+        for (player in playersName) {
+            val currentTotal = this.scores[player]!!.last()
+            val maxTotal = this.scores[winners[0]]?.last() ?: 0
+            if (winners.isEmpty() || currentTotal > maxTotal) {
+                winners = ArrayList()
+                winners.add(player)
+            } else if (currentTotal == maxTotal) {
+                winners.add(player)
+            }
+        }
+
+        return winners
+    }
+
     private fun showTable(view: View) {
         val table = view.findViewById<TableLayout>(R.id.scoresheet)
         for (playerIndex in playersName.indices) {
@@ -84,6 +104,12 @@ class GlobalScoresheetFragment() : Fragment(), Serializable,  Parcelable {
 
                 text.text = (this.scores[playersName[playerIndex]]?.get(i - 1)).toString()
             }
+        }
+
+        for (player in getWinners()) {
+            val lastRow = table.getChildAt(table.childCount-1) as TableRow
+            val text = lastRow.getChildAt(playersName.indexOf(player)) as TextView?
+            text?.typeface = Typeface.DEFAULT_BOLD
         }
     }
 

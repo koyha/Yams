@@ -20,7 +20,6 @@
             android:id="@+id/scoresheet"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:background="@color/outline"
             android:stretchColumns="*">
 
             <TableRow
@@ -130,20 +129,18 @@
             android:id="@+id/scoresheet_titles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/outline"
             android:stretchColumns="*">
 
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom">
 
                 <TextView
                     android:id="@+id/name_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:text="@string/name_title" />
@@ -153,14 +150,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/aces_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="one"
@@ -171,14 +167,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/twos_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="two"
@@ -189,14 +184,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/threes_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="three"
@@ -207,14 +201,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/fours_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="four"
@@ -225,14 +218,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/fives_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="five"
@@ -243,14 +235,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/sixes_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="six"
@@ -261,14 +252,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/bonus_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="bonus"
@@ -279,14 +269,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/total_row_left">
 
                 <TextView
                     android:id="@+id/normal_total_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="total_number"
@@ -297,14 +286,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/three_kind_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="three_kind"
@@ -315,14 +303,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/four_kind_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="four_kind"
@@ -333,14 +320,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/full_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="full"
@@ -351,14 +337,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/sm_straight_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="sm_straight"
@@ -369,14 +354,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/lg_straight_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="lg_straight"
@@ -387,14 +371,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/yathzee_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="yathzee"
@@ -405,14 +388,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/outline_bottom_left_right">
 
                 <TextView
                     android:id="@+id/chance_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="chance"
@@ -423,14 +405,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/total_row_left">
 
                 <TextView
                     android:id="@+id/special_total_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="total_special"
@@ -441,14 +422,13 @@
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/total_row_left">
 
                 <TextView
                     android:id="@+id/grand_total_title"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_margin="@dimen/margin_box"
-                    android:background="@color/background_box"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="5dp"
                     android:tag="grand_total"
