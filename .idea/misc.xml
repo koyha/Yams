@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.4453125" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_end_game.xml" value="0.2578125" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_game.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_game_creation.xml" value="0.4466666666666667" />
@@ -18,6 +19,7 @@
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_score_grid.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_score_sheet.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/homepage_main.xml" value="0.30052083333333335" />
+        <entry key="app/src/main/res/drawable/button.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/dice_1.xml" value="0.28125" />
         <entry key="app/src/main/res/drawable/dice_1_wtf.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/drawable/dice_2.xml" value="0.265625" />
@@ -28,11 +30,13 @@
         <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/activity_game_creation.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21023302938196556" />
         <entry key="app/src/main/res/layout/activity_stats.xml" value="0.21023302938196556" />
         <entry key="app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
         <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_score_grid.xml" value="0.26902173913043476" />
+        <entry key="app/src/main/res/layout/sample_custom_button.xml" value="0.21023302938196556" />
       </map>
     </option>
   </component>

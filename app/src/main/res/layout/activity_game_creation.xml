@@ -32,7 +32,7 @@
         android:layout_width="273dp"
         android:layout_height="88dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:scaleX="1"
         android:scaleY="1"
         android:text="@string/game_creation_activity_title"
@@ -43,16 +43,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="217dp"
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="35dp"
-        android:maxHeight="300dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_start_game"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHeight_default="wrap"
-        app:layout_constraintHeight_max="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview_title_game_creation"
         app:layout_constraintVertical_bias="0.0"
@@ -62,71 +62,33 @@
             android:id="@+id/linear_layout_inputs_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/player_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Louis" />
-
-                <Button
-                    android:id="@+id/delete_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5"
-                    android:text="-" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/player_two"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Galaad" />
-
-                <Button
-                    android:id="@+id/delete_button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="5"
-                    android:text="-" />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:orientation="vertical"/>
     </ScrollView>
 
     <Button
         android:id="@+id/button_add_input_text"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
         android:text="+"
         android:visibility="visible"
+        app:layout_constrainedHeight="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.188"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <Button
         android:id="@+id/button_start_game"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="600dp"
+        android:layout_marginBottom="50dp"
         android:text="@string/start_game_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
