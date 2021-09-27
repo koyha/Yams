@@ -44,10 +44,10 @@
 
     <!-- EndGameActivity-->
     <string name="button_replay">Replay</string>
-    <string name="button_change_players">Change Players</string>
+    <string name="button_change_players">Play again</string>
     <string name="button_endgame_to_homepage">Homepage</string>
-    <string name="one_winner"> Wins !</string>
-    <string name="several_winners"> Win !</string>
+    <string name="one_winner"> wins !</string>
+    <string name="several_winners"> win !</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

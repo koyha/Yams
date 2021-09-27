@@ -25,6 +25,7 @@
             android:gravity="center"
             android:text="@string/one_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -52,6 +53,7 @@
             android:gravity="center"
             android:text="@string/three_kind_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -84,6 +86,7 @@
             android:gravity="center"
             android:text="@string/two_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -111,6 +114,7 @@
             android:gravity="center"
             android:text="@string/four_kind_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -148,6 +152,7 @@
             android:gravity="center"
             android:text="@string/three_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -175,6 +180,7 @@
             android:gravity="center"
             android:text="@string/full_house_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -211,6 +217,7 @@
             android:gravity="center"
             android:text="@string/four_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -238,6 +245,7 @@
             android:gravity="center"
             android:text="@string/sm_straight_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -274,6 +282,7 @@
             android:gravity="center"
             android:text="@string/five_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -301,6 +310,7 @@
             android:gravity="center"
             android:text="@string/lg_straight_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -337,6 +347,7 @@
             android:gravity="center"
             android:text="@string/six_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -364,6 +375,7 @@
             android:gravity="center"
             android:text="@string/yahtzee_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -400,6 +412,7 @@
             android:gravity="center"
             android:text="@string/bonus_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -409,11 +422,12 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_score"
             android:layout_weight="1"
-            android:background="@drawable/background_score_set"
+            android:background="@drawable/background_score"
             android:gravity="center"
-            android:tag="score"
+            android:tag="score_set"
             android:text="@string/total_default"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -427,6 +441,7 @@
             android:gravity="center"
             android:text="@string/chance_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -463,6 +478,7 @@
             android:gravity="center"
             android:text="@string/total_number_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -474,9 +490,10 @@
             android:layout_weight="1"
             android:background="@drawable/background_score_set"
             android:gravity="center"
-            android:tag="score"
+            android:tag="score_set"
             android:text="@string/total_default"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -490,6 +507,7 @@
             android:gravity="center"
             android:text="@string/total_combination_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -501,9 +519,10 @@
             android:layout_weight="1"
             android:background="@drawable/background_score_set"
             android:gravity="center"
-            android:tag="score"
+            android:tag="score_set"
             android:text="@string/total_default"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
     </TableRow>
@@ -526,6 +545,7 @@
             android:gravity="center"
             android:text="@string/grand_total_box"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -537,9 +557,10 @@
             android:layout_weight="4"
             android:background="@drawable/background_score_set"
             android:gravity="center"
-            android:tag="score"
+            android:tag="score_set"
             android:text="@string/total_default"
             android:textAlignment="center"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
             android:textStyle="bold" />
     </TableRow>

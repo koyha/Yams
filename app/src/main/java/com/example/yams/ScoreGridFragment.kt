@@ -95,8 +95,6 @@ class ScoreGridFragment : Fragment() {
 
     private fun updateTable(view: View = requireView()) {
         onEachScoreCell({
-//          scores[it.id] = 0 //pour tester
-
             it.isClickable = false
             if (scores[it.id] == null) {
                 it.text = "0"
@@ -150,11 +148,18 @@ class ScoreGridFragment : Fragment() {
         val bonusCell = requireView().findViewById<TextView>(R.id.bonus_score)
         val totalCell = requireView().findViewById<TextView>(R.id.total_number_score)
 
+        var allNormalFilled = true
+        onEachScoreCell({
+            if (scores[it.id] == null) {
+                allNormalFilled = false
+            }
+        }, "normal")
+
         if (normalTotal >= 63 && bonusCell.text == "0") {
             bonusCell.text = 35.toString()
             scores[bonusCell.id] = 35
             normalTotal += 35
-        } else {
+        } else if (allNormalFilled){
             scores[bonusCell.id] = 0
         }
         totalCell.text = normalTotal.toString()
