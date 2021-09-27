@@ -53,6 +53,12 @@
         <entry key="app/src/main/res/drawable/outline_bottom_left_right.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/outline_bottom_right.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/outline_first.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/sg_box_outline_bottom_right.xml" value="0.44153846153846155" />
+        <entry key="app/src/main/res/drawable/sg_box_outline_left_bottom_right.xml" value="0.44153846153846155" />
+        <entry key="app/src/main/res/drawable/sg_score_outline_bottom_right.xml" value="0.44153846153846155" />
+        <entry key="app/src/main/res/drawable/sg_score_outline_bottom_right_top.xml" value="0.44153846153846155" />
+        <entry key="app/src/main/res/drawable/sg_score_set_outline_bottom_right.xml" value="0.44153846153846155" />
+        <entry key="app/src/main/res/drawable/sg_score_set_outline_bottom_right_top.xml" value="0.44153846153846155" />
         <entry key="app/src/main/res/drawable/top_cell.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/total_row.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/total_row_left.xml" value="0.4484375" />
