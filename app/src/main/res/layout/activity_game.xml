@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/light_yellow"
     tools:context=".GameActivity">
 
 
@@ -50,10 +50,10 @@
         <TextView
             android:id="@+id/player_turn"
             android:layout_width="wrap_content"
-            android:layout_marginRight="50dp"
-            android:layout_marginLeft="50dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="50dp"
             android:layout_marginBottom="10dp"
             android:text="@string/player_turn"
             android:textAlignment="center"
@@ -72,8 +72,8 @@
         android:name="com.example.yams.GlobalScoresheetFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,8 +97,8 @@
         android:id="@+id/global_scoresheet_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:text="@string/global_score_button"
         app:layout_constraintBottom_toTopOf="@+id/score_table"
         app:layout_constraintEnd_toEndOf="parent"

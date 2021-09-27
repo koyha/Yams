@@ -8,7 +8,13 @@ import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.setMargins
 import androidx.fragment.app.FragmentContainerView
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
+import kotlin.collections.ArrayList
 
 class HistoryActivity : AppCompatActivity() {
     private val storage = Storage()
@@ -25,14 +31,22 @@ class HistoryActivity : AppCompatActivity() {
         // dummy fragment to initialize the container
         val glo = GlobalScoresheetFragment()
         val players = ArrayList<String>()
-        players.add("dummy_model")
+        players.add("")
         glo.setPlayers(players)
         supportFragmentManager.beginTransaction().replace(R.id.history_global_scoresheet, glo).commit()
 
         // loop that gets files(the games) one by one
         for (file in storage.getStoredFragmentsList(this)) {
-            println(file)
             addGame(file)
+        }
+
+        val v = findViewById<ConstraintLayout>(R.id.history_root)
+        v?.findViewById<ConstraintLayout>(R.id.history_root)?.setOnClickListener {
+            val scoresheet = findViewById<FragmentContainerView>(R.id.history_global_scoresheet)
+
+            if (scoresheet != null && scoresheet.visibility == View.VISIBLE) {
+                scoresheet.visibility = View.GONE
+            }
         }
     }
 
@@ -42,8 +56,11 @@ class HistoryActivity : AppCompatActivity() {
         val layoutScrollGames: LinearLayout = findViewById(R.id.linear_layout_history)
 
         val gameTextView = TextView(this)
-        gameTextView.text = filename
+        val date = LocalDateTime.parse(filename)
+        val formatted = date.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG, FormatStyle.SHORT))
+        gameTextView.text = formatted
         gameTextView.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT, 1f)
+        (gameTextView.layoutParams as ViewGroup.MarginLayoutParams).setMargins(15)
 
         layoutScrollGames.addView(gameTextView)
 
@@ -54,19 +71,10 @@ class HistoryActivity : AppCompatActivity() {
 
     private fun showGlobalScoresheet(globalScoresheetFragment : GlobalScoresheetFragment, scrollView: ScrollView ,linear: LinearLayout) {
         // Display the clicked gamed of the history list, click on the scoresheet to close it
-        linear.visibility = View.GONE
-        scrollView.visibility = View.GONE
-
         supportFragmentManager.beginTransaction().replace(R.id.history_global_scoresheet, globalScoresheetFragment).commit()
 
         val scoresheet = findViewById<FragmentContainerView>(R.id.history_global_scoresheet)
         scoresheet.visibility = View.VISIBLE
-        scoresheet.setOnClickListener{
-            scoresheet.visibility = View.GONE
-
-            scrollView.visibility = View.VISIBLE
-            linear.visibility = View.VISIBLE
-        }
-
+        scoresheet.setOnClickListener {  }
     }
 }

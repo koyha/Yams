@@ -46,11 +46,24 @@
         <entry key="app/src/main/res/drawable/dice_4.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/dice_5.xml" value="0.265625" />
         <entry key="app/src/main/res/drawable/dice_6.xml" value="0.265625" />
+        <entry key="app/src/main/res/drawable/frame_input_dices.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/global_scoresheet_cell.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/history_button.xml" value="0.246875" />
+        <entry key="app/src/main/res/drawable/outline_bottom.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/outline_bottom_left_right.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/outline_bottom_right.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/outline_first.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/top_cell.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/total_row.xml" value="0.4484375" />
+        <entry key="app/src/main/res/drawable/total_row_left.xml" value="0.4484375" />
+        <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
         <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />
         <entry key="app/src/main/res/layout/fragment_score_grid.xml" value="0.26902173913043476" />
+        <entry key="app/src/main/res/layout/history_stats.xml" value="0.21023302938196556" />
+        <entry key="app/src/main/res/layout/sample_custom_button.xml" value="0.21023302938196556" />
       </map>
     </option>
   </component>
