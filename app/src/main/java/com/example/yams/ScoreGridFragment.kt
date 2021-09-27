@@ -155,11 +155,11 @@ class ScoreGridFragment : Fragment() {
             }
         }, "normal")
 
-        if (normalTotal >= 63 && bonusCell.text == "0") {
+        if (normalTotal >= 63 && scores[bonusCell.id] == null) {
             bonusCell.text = 35.toString()
             scores[bonusCell.id] = 35
             normalTotal += 35
-        } else if (allNormalFilled){
+        } else if (allNormalFilled && scores[bonusCell.id] == null){
             scores[bonusCell.id] = 0
         }
         totalCell.text = normalTotal.toString()
