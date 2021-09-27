@@ -3,7 +3,7 @@
     <item android:top="-4dp" android:left="-2dp" android:right="-2dp">
         <shape android:shape="rectangle">
             <stroke android:width="3dp" android:color="@color/outline" />
-            <solid android:color="@color/background_total" />
+            <solid android:color="@color/background_color_score_set" />
         </shape>
     </item>
 </layer-list>

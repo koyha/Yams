@@ -3,7 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.4453125" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/button.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/frame_dices.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/frame_input_dices.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/ic_launcher_background.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/outline_bottom.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/outline_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/round_corners.xml" value="0.18697916666666667" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/scoregrid_outline.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_box_full_outline.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_box_outline_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_box_outline_bottom_right_top.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_box_outline_left_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_outline_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_score_outline_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_score_outline_bottom_right_top.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_score_outline_bottom_right_top.xml.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_score_set_outline_bottom_right.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/sg_score_set_outline_bottom_right_top.xml" value="0.31666666666666665" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/total_row.xml" value="0.19947916666666668" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/drawable/total_row_left.xml" value="0.19947916666666668" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_end_game.xml" value="0.2578125" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_game.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_game_creation.xml" value="0.4466666666666667" />
@@ -12,14 +32,13 @@
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_options.xml" value="0.21979166666666666" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/activity_stats.xml" value="0.3880208333333333" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_game_tabs.xml" value="0.25317028985507245" />
-        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.14375" />
+        <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.3006774361646691" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_grille.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_input_dice.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_main.xml" value="0.30052083333333335" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_score_grid.xml" value="0.21145833333333333" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/fragment_score_sheet.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/louis/AndroidStudioProjects/Yams/app/src/main/res/layout/homepage_main.xml" value="0.30052083333333335" />
-        <entry key="app/src/main/res/drawable/button.xml" value="0.4484375" />
         <entry key="app/src/main/res/drawable/dice_1.xml" value="0.28125" />
         <entry key="app/src/main/res/drawable/dice_1_wtf.xml" value="0.2361111111111111" />
         <entry key="app/src/main/res/drawable/dice_2.xml" value="0.265625" />
@@ -39,9 +58,6 @@
         <entry key="app/src/main/res/drawable/total_row_left.xml" value="0.4484375" />
         <entry key="app/src/main/res/layout/activity_end_game.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_game.xml" value="0.26510416666666664" />
-        <entry key="app/src/main/res/layout/activity_game_creation.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.21023302938196556" />
-        <entry key="app/src/main/res/layout/activity_stats.xml" value="0.21023302938196556" />
         <entry key="app/src/main/res/layout/fragment_global_scoresheet.xml" value="0.26902173913043476" />
         <entry key="app/src/main/res/layout/fragment_grille.xml" value="0.3183876811594203" />
         <entry key="app/src/main/res/layout/fragment_input_dice.xml" value="0.26510416666666664" />
