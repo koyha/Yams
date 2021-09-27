@@ -15,6 +15,7 @@
     <color name="green_400">#095b06</color>
     <color name="blue">#062f53</color>
     <color name="light_yellow">#FFF7E6</color>
-    <color name="yellow">#FFFFEB99</color>
-    <color name="dark_purple">#17004C</color>
+    <color name="yellow">#FFEEA7</color>
+    <color name="dark_purple">#402C65</color>
+    <color name="dark_yellow">#F2E5C9</color>
 </resources>
